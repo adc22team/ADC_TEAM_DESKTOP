@@ -4,6 +4,8 @@
  */
 package Vistas;
 
+import Plantillas.*;
+import Vistas.Login;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -15,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author garci
  */
-public class DesktopBaseProva extends javax.swing.JFrame {
+public class DesktopConfiguracioClar extends javax.swing.JFrame {
 
      static int id;
      static String usuari;
@@ -26,7 +28,7 @@ public class DesktopBaseProva extends javax.swing.JFrame {
     }
 
     public static void setRol(int rol) {
-        DesktopBaseProva.rol = rol;
+        DesktopConfiguracioClar.rol = rol;
     }
 
     public static String getUsuari() {
@@ -34,7 +36,7 @@ public class DesktopBaseProva extends javax.swing.JFrame {
     }
 
     public static void setUsuari(String usuari) {
-        DesktopBaseProva.usuari = usuari;
+        DesktopConfiguracioClar.usuari = usuari;
     }
      static String pwd;
 
@@ -43,7 +45,7 @@ public class DesktopBaseProva extends javax.swing.JFrame {
     }
 
     public static void setPwd(String pwd) {
-        DesktopBaseProva.pwd = pwd;
+        DesktopConfiguracioClar.pwd = pwd;
     }
 
     public static int getId() {
@@ -51,12 +53,12 @@ public class DesktopBaseProva extends javax.swing.JFrame {
     }
 
     public static void setId(int id) {
-        DesktopBaseProva.id = id;
+        DesktopConfiguracioClar.id = id;
     }
     /**
      * Creates new form DesktopPrincipal
      */
-    public DesktopBaseProva() {
+    public DesktopConfiguracioClar() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -86,32 +88,47 @@ public class DesktopBaseProva extends javax.swing.JFrame {
         jLabelMinimize = new javax.swing.JLabel();
         jLabelClose = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelMenuLeft.setBackground(new java.awt.Color(55, 55, 55));
+        jPanelMenuLeft.setBackground(new java.awt.Color(245, 245, 245));
+        jPanelMenuLeft.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelMenuLeftMouseClicked(evt);
+            }
+        });
 
         jSeparator1.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
+        jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
 
         jLabelHome.setBackground(new java.awt.Color(60, 210, 75));
         jLabelHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelHome.setForeground(new java.awt.Color(255, 255, 0));
-        jLabelHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/01 Inici Selected.png"))); // NOI18N
+        jLabelHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/01 Inici NoSelected TC.png"))); // NOI18N
+        jLabelHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelIssues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/02 Incidencies NoSelected.png"))); // NOI18N
+        jLabelIssues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/02 Incidencies NoSelected TC.png"))); // NOI18N
+        jLabelIssues.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/03 Tiquets NoSelected.png"))); // NOI18N
+        jLabelTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/03 Tiquets NoSelected TC.png"))); // NOI18N
+        jLabelTickets.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelStadictics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/04 Estadistiques NoSelected.png"))); // NOI18N
+        jLabelStadictics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/04 Estadistiques NoSelected TC.png"))); // NOI18N
+        jLabelStadictics.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Alta Usuari NoSelected.png"))); // NOI18N
+        jLabelNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Alta Usuari NoSelected TC.png"))); // NOI18N
+        jLabelNewUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelMessage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges NoSelected.png"))); // NOI18N
+        jLabelMessage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges NoSelected TC.png"))); // NOI18N
+        jLabelMessage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabelSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/07 Configuracio NoSelected.png"))); // NOI18N
+        jLabelSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/07 Configuracio Selected.png"))); // NOI18N
+        jLabelSettings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanelMenuLeftLayout = new javax.swing.GroupLayout(jPanelMenuLeft);
         jPanelMenuLeft.setLayout(jPanelMenuLeftLayout);
@@ -153,7 +170,7 @@ public class DesktopBaseProva extends javax.swing.JFrame {
 
         getContentPane().add(jPanelMenuLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 600));
 
-        jPaneMenuRight.setBackground(new java.awt.Color(51, 51, 51));
+        jPaneMenuRight.setBackground(new java.awt.Color(204, 204, 204));
         jPaneMenuRight.setPreferredSize(new java.awt.Dimension(1000, 600));
 
         jLabelTittle.setBackground(new java.awt.Color(73, 181, 172));
@@ -163,6 +180,7 @@ public class DesktopBaseProva extends javax.swing.JFrame {
 
         jLabelUserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-male-user-24.png"))); // NOI18N
 
+        jLabelUserConnected.setBackground(new java.awt.Color(204, 204, 204));
         jLabelUserConnected.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabelUserConnected.setForeground(new java.awt.Color(73, 181, 172));
 
@@ -182,20 +200,52 @@ public class DesktopBaseProva extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(55, 55, 55));
+        jPanel1.setBackground(new java.awt.Color(245, 245, 245));
+        jPanel1.setPreferredSize(new java.awt.Dimension(158, 500));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ModeClar.png"))); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ModeFosc.png"))); // NOI18N
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("Tema");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 788, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel4)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addContainerGap(385, Short.MAX_VALUE))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-logout-40.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -211,7 +261,7 @@ public class DesktopBaseProva extends javax.swing.JFrame {
                     .addGroup(jPaneMenuRightLayout.createSequentialGroup()
                         .addGap(206, 206, 206)
                         .addGroup(jPaneMenuRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
                             .addGroup(jPaneMenuRightLayout.createSequentialGroup()
                                 .addComponent(jLabelTittle)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 381, Short.MAX_VALUE)
@@ -248,7 +298,7 @@ public class DesktopBaseProva extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18))
+                .addGap(33, 33, 33))
         );
 
         getContentPane().add(jPaneMenuRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
@@ -274,6 +324,18 @@ public class DesktopBaseProva extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void jPanelMenuLeftMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMenuLeftMouseClicked
+        DesktopIniciClar window = new DesktopIniciClar();
+        window.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanelMenuLeftMouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        DesktopConfiguracioFosc window = new DesktopConfiguracioFosc();
+        window.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -291,27 +353,60 @@ public class DesktopBaseProva extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DesktopBaseProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopConfiguracioClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DesktopBaseProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopConfiguracioClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DesktopBaseProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopConfiguracioClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DesktopBaseProva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopConfiguracioClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DesktopBaseProva().setVisible(true);
+                new DesktopConfiguracioClar().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelHome;
     private javax.swing.JLabel jLabelIssues;
@@ -347,8 +442,68 @@ private void logOut(){
         System.out.println("Valor getId: " + getId());
 
     } catch (IOException ex) {
-        Logger.getLogger(DesktopBaseProva.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(DesktopConfiguracioClar.class.getName()).log(Level.SEVERE, null, ex);
     }
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
 
     //System.exit(0);
 

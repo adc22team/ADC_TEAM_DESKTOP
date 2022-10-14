@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vistas;
+package Plantillas;
 
+import Vistas.Login;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author garci
  */
-public class DesktopBaseProvaClar extends javax.swing.JFrame {
+public class DesktopPlantillaClar extends javax.swing.JFrame {
 
      static int id;
      static String usuari;
@@ -26,7 +27,7 @@ public class DesktopBaseProvaClar extends javax.swing.JFrame {
     }
 
     public static void setRol(int rol) {
-        DesktopBaseProvaClar.rol = rol;
+        DesktopPlantillaClar.rol = rol;
     }
 
     public static String getUsuari() {
@@ -34,7 +35,7 @@ public class DesktopBaseProvaClar extends javax.swing.JFrame {
     }
 
     public static void setUsuari(String usuari) {
-        DesktopBaseProvaClar.usuari = usuari;
+        DesktopPlantillaClar.usuari = usuari;
     }
      static String pwd;
 
@@ -43,7 +44,7 @@ public class DesktopBaseProvaClar extends javax.swing.JFrame {
     }
 
     public static void setPwd(String pwd) {
-        DesktopBaseProvaClar.pwd = pwd;
+        DesktopPlantillaClar.pwd = pwd;
     }
 
     public static int getId() {
@@ -51,12 +52,12 @@ public class DesktopBaseProvaClar extends javax.swing.JFrame {
     }
 
     public static void setId(int id) {
-        DesktopBaseProvaClar.id = id;
+        DesktopPlantillaClar.id = id;
     }
     /**
      * Creates new form DesktopPrincipal
      */
-    public DesktopBaseProvaClar() {
+    public DesktopPlantillaClar() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -100,18 +101,25 @@ public class DesktopBaseProvaClar extends javax.swing.JFrame {
         jLabelHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelHome.setForeground(new java.awt.Color(255, 255, 0));
         jLabelHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/01 Inici Selected.png"))); // NOI18N
+        jLabelHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabelIssues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/02 Incidencies NoSelected TC.png"))); // NOI18N
+        jLabelIssues.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabelTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/03 Tiquets NoSelected TC.png"))); // NOI18N
+        jLabelTickets.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabelStadictics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/04 Estadistiques NoSelected TC.png"))); // NOI18N
+        jLabelStadictics.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabelNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Alta Usuari NoSelected TC.png"))); // NOI18N
+        jLabelNewUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabelMessage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges NoSelected TC.png"))); // NOI18N
+        jLabelMessage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabelSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/07 Configuracio NoSelected TC.png"))); // NOI18N
+        jLabelSettings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanelMenuLeftLayout = new javax.swing.GroupLayout(jPanelMenuLeft);
         jPanelMenuLeft.setLayout(jPanelMenuLeftLayout);
@@ -197,6 +205,7 @@ public class DesktopBaseProvaClar extends javax.swing.JFrame {
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-logout-40.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -292,14 +301,26 @@ public class DesktopBaseProvaClar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DesktopBaseProvaClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopPlantillaClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DesktopBaseProvaClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopPlantillaClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DesktopBaseProvaClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopPlantillaClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DesktopBaseProvaClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopPlantillaClar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -308,7 +329,7 @@ public class DesktopBaseProvaClar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DesktopBaseProvaClar().setVisible(true);
+                new DesktopPlantillaClar().setVisible(true);
             }
         });
     }
@@ -350,8 +371,32 @@ private void logOut(){
         System.out.println("Valor getId: " + getId());
 
     } catch (IOException ex) {
-        Logger.getLogger(DesktopBaseProvaClar.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(DesktopPlantillaClar.class.getName()).log(Level.SEVERE, null, ex);
     }
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
+
+    //System.exit(0);
 
     //System.exit(0);
 

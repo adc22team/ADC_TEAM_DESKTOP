@@ -89,13 +89,13 @@ public class Login extends javax.swing.JFrame {
         });
 
         loginTextIniciarSesion.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
-        loginTextIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        loginTextIniciarSesion.setForeground(new java.awt.Color(204, 204, 204));
         loginTextIniciarSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginTextIniciarSesion.setText("Iniciar Sesión");
+        loginTextIniciarSesion.setText("Iniciar Sessió");
 
         jLabelUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabelUser.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelUser.setText("USUARIO");
+        jLabelUser.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelUser.setText("USUARI");
 
         jLabelUserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_male_user_40px_1.png"))); // NOI18N
         jLabelUserIcon.setText("jLabel5");
@@ -114,8 +114,8 @@ public class Login extends javax.swing.JFrame {
         jSeparatorUser.setForeground(new java.awt.Color(73, 181, 172));
 
         jLabelPassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelPassword.setText("CONTRASEÑA");
+        jLabelPassword.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelPassword.setText("CONTRASENYA");
 
         jLabelPasswordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_lock_40px.png"))); // NOI18N
         jLabelPasswordIcon.setText("jLabel5");
@@ -130,8 +130,8 @@ public class Login extends javax.swing.JFrame {
 
         jButtonLogin.setBackground(new java.awt.Color(73, 181, 172));
         jButtonLogin.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
-        jButtonLogin.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonLogin.setText("INICIAR SESIÓN");
+        jButtonLogin.setForeground(new java.awt.Color(245, 245, 245));
+        jButtonLogin.setText("INICIAR SESSIÓ");
         jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,7 +232,7 @@ public class Login extends javax.swing.JFrame {
                 int rol = in.readInt();
                                
                 JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUser.getText().toString());
-                DesktopPrincipal window = new DesktopPrincipal();
+                DesktopIniciFosc window = new DesktopIniciFosc();
                 window.jLabelUserConnected.setText(jTextFieldUser.getText().toString()+" - #"+resposta_svr_id + " - # rol: " + rol);
                 
                 //Envio el id de la connexió validada a la finestra
