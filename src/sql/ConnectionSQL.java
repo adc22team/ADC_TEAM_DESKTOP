@@ -4,7 +4,7 @@
  */
 package sql;
 
-import Vistas.Login;
+import Vistas.Login1;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
