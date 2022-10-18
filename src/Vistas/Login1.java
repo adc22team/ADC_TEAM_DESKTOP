@@ -219,7 +219,7 @@ public class Login1 extends javax.swing.JFrame {
             //Llegir la resposta del servidor al establir la connexió
             String resposta_svr = in.readUTF();
 
-            //
+            //Enviem resposta al servidor amb el usuari i la contrasenya
             out.writeUTF("LOGIN," + jTextFieldUser.getText().toString() + "," + jPasswordField.getText().toString() + ",0");
             System.out.println("LOGIN," + jTextFieldUser.getText().toString() + "," + jPasswordField.getText().toString() + ",0");
 
@@ -234,32 +234,35 @@ public class Login1 extends javax.swing.JFrame {
                     //Obre finestra administrador
                     JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUser.getText().toString());
                     Plantillas.DesktopPlantillaFosc window = new Plantillas.DesktopPlantillaFosc();
-                    window.jLabelUserConnected.setText(jTextFieldUser.getText().toString());
+                    window.jLabelUserConnected.setText(jTextFieldUser.getText().toString() + " - #" + resposta_svr_id + " - # rol: " + rol);
 
+                    //Envio el id de la connexió validada a la finestra
                     window.setId(resposta_svr_id);
                     window.setUsuari(jTextFieldUser.getText().toString());
                     window.setPwd(jPasswordField.getText().toString());
                     window.setRol(rol);
 
                     window.setVisible(true);
+                    this.dispose();
                 } else if (rol == 2) {
                     //Obre finestra tecnic
                     JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUser.getText().toString());
                     Plantillas.DesktopPlantillaFosc1 window = new Plantillas.DesktopPlantillaFosc1();
-                    window.jLabelUserConnected.setText(jTextFieldUser.getText().toString());
+                    window.jLabelUserConnected.setText(jTextFieldUser.getText().toString() + " - #" + resposta_svr_id + " - # rol: " + rol);
 
+                    //Envio el id de la connexió validada a la finestra
                     window.setId(resposta_svr_id);
                     window.setUsuari(jTextFieldUser.getText().toString());
                     window.setPwd(jPasswordField.getText().toString());
                     window.setRol(rol);
 
                     window.setVisible(true);
+                    this.dispose();
                 } else {
                     //Misstge que es usuari i no te credencials
                     JOptionPane.showMessageDialog(this, "Aquest usuari no te credencials per aquest aplicatiu. Inicia sessió amb el client mòbil.");
                 }
 
-                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Error de usuari o contrasenya");
                 logout(jTextFieldUser.getText().toString(), jPasswordField.getText().toString(), resposta_svr_id);
