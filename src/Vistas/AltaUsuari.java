@@ -5,7 +5,7 @@
 package Vistas;
 
 import javax.swing.JOptionPane;
-import sql.MetodesSQL;
+//import sql.MetodesSQL;
 
 /**
  *
@@ -21,7 +21,7 @@ public class AltaUsuari extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-   MetodesSQL metodes = new MetodesSQL();
+   //MetodesSQL metodes = new MetodesSQL();
 
     /**
      * This method is called from within the constructor to initialize the form.

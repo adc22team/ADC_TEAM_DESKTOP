@@ -12,6 +12,7 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  *
  * @author garci
@@ -79,7 +80,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelMinimize = new javax.swing.JLabel();
         jLabelClose = new javax.swing.JLabel();
         jPanelMenuLeft = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelLogo = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabelHomeMenu = new javax.swing.JLabel();
         jLabelTicketsMenu = new javax.swing.JLabel();
@@ -99,11 +100,28 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jPanelUserManagement = new javax.swing.JPanel();
         jLabelUsers = new javax.swing.JLabel();
         jPanelUsers = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelNewUser = new javax.swing.JLabel();
+        jLabelSearchUsers = new javax.swing.JLabel();
+        jLabelModifyUsers = new javax.swing.JLabel();
+        jLabelDelUsers = new javax.swing.JLabel();
         jPanelUsersAdd = new javax.swing.JPanel();
+        jLabelBack = new javax.swing.JLabel();
+        jLabelAddUser = new javax.swing.JLabel();
+        jLabelAddPwd = new javax.swing.JLabel();
+        jLabelAddName = new javax.swing.JLabel();
+        jLabelAddLastname = new javax.swing.JLabel();
+        jLabelAddDepartment = new javax.swing.JLabel();
+        jLabelAddRole = new javax.swing.JLabel();
+        jLabelState = new javax.swing.JLabel();
+        jTextFieldAddUser = new javax.swing.JTextField();
+        jPasswordFieldAddPwd = new javax.swing.JPasswordField();
+        jTextFieldAddName = new javax.swing.JTextField();
+        jTextFieldAddLastname = new javax.swing.JTextField();
+        jComboBoxAddDepartment = new javax.swing.JComboBox<>();
+        jComboBoxAddRole = new javax.swing.JComboBox<>();
+        jComboBoxAddState = new javax.swing.JComboBox<>();
+        jLabelCleanAddPanel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanelDepManagement = new javax.swing.JPanel();
         jLabelDepManagement = new javax.swing.JLabel();
         jPanelMessage = new javax.swing.JPanel();
@@ -182,17 +200,17 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
 
         jPanelMenuLeft.setBackground(new java.awt.Color(55, 55, 55));
 
-        jPanel2.setBackground(new java.awt.Color(55, 55, 55));
-        jPanel2.setPreferredSize(new java.awt.Dimension(200, 93));
+        jPanelLogo.setBackground(new java.awt.Color(55, 55, 55));
+        jPanelLogo.setPreferredSize(new java.awt.Dimension(200, 93));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelLogoLayout = new javax.swing.GroupLayout(jPanelLogo);
+        jPanelLogo.setLayout(jPanelLogoLayout);
+        jPanelLogoLayout.setHorizontalGroup(
+            jPanelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelLogoLayout.setVerticalGroup(
+            jPanelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 93, Short.MAX_VALUE)
         );
 
@@ -293,7 +311,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
                         .addComponent(jLabelStadisticsMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelUserManagementMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelMessageMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanelLogo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelSettingsMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelDepManagementMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -301,7 +319,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jPanelMenuLeftLayout.setVerticalGroup(
             jPanelMenuLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMenuLeftLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -417,25 +435,149 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jPanelUsers.setBackground(new java.awt.Color(55, 55, 55));
         jPanelUsers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-add-user-male-100.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-add-user-male-100.png"))); // NOI18N
+        jLabelNewUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                jLabelNewUserMouseClicked(evt);
             }
         });
-        jPanelUsers.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        jPanelUsers.add(jLabelNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-find-user-male-100.png"))); // NOI18N
-        jPanelUsers.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+        jLabelSearchUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-find-user-male-100.png"))); // NOI18N
+        jPanelUsers.add(jLabelSearchUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-registration-100.png"))); // NOI18N
-        jPanelUsers.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
+        jLabelModifyUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-registration-100.png"))); // NOI18N
+        jPanelUsers.add(jLabelModifyUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-delete-user-male-100.png"))); // NOI18N
-        jPanelUsers.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 55, -1, -1));
+        jLabelDelUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-delete-user-male-100.png"))); // NOI18N
+        jPanelUsers.add(jLabelDelUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 55, -1, -1));
 
         jPanelUsersAdd.setBackground(new java.awt.Color(55, 55, 55));
+        jPanelUsersAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanelUsersAdd.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-left-24.png"))); // NOI18N
+        jLabelBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBackMouseClicked(evt);
+            }
+        });
+        jPanelUsersAdd.add(jLabelBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLabelAddUser.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabelAddUser.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelAddUser.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelAddUser.setText("Usuari");
+        jLabelAddUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelAddUser.setFocusable(false);
+        jPanelUsersAdd.add(jLabelAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, -1));
+
+        jLabelAddPwd.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabelAddPwd.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelAddPwd.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelAddPwd.setText("Contrasenya");
+        jLabelAddPwd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelAddPwd.setFocusable(false);
+        jPanelUsersAdd.add(jLabelAddPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 100, -1));
+
+        jLabelAddName.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabelAddName.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelAddName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelAddName.setText("Nom");
+        jLabelAddName.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelAddName.setFocusable(false);
+        jPanelUsersAdd.add(jLabelAddName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 100, -1));
+
+        jLabelAddLastname.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabelAddLastname.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelAddLastname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelAddLastname.setText("Cognom");
+        jLabelAddLastname.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelAddLastname.setFocusable(false);
+        jPanelUsersAdd.add(jLabelAddLastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 100, -1));
+
+        jLabelAddDepartment.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabelAddDepartment.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelAddDepartment.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelAddDepartment.setText("Departament");
+        jLabelAddDepartment.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelAddDepartment.setFocusable(false);
+        jPanelUsersAdd.add(jLabelAddDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 100, -1));
+
+        jLabelAddRole.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabelAddRole.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelAddRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelAddRole.setText("Rol");
+        jLabelAddRole.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelAddRole.setFocusable(false);
+        jPanelUsersAdd.add(jLabelAddRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 100, -1));
+
+        jLabelState.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabelState.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelState.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelState.setText("Estat");
+        jLabelState.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabelState.setFocusable(false);
+        jPanelUsersAdd.add(jLabelState, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 100, -1));
+
+        jTextFieldAddUser.setBackground(new java.awt.Color(51, 51, 51));
+        jTextFieldAddUser.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldAddUser.setBorder(null);
+        jTextFieldAddUser.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanelUsersAdd.add(jTextFieldAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 160, 25));
+
+        jPasswordFieldAddPwd.setBackground(new java.awt.Color(51, 51, 51));
+        jPasswordFieldAddPwd.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordFieldAddPwd.setBorder(null);
+        jPasswordFieldAddPwd.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanelUsersAdd.add(jPasswordFieldAddPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 160, 25));
+
+        jTextFieldAddName.setBackground(new java.awt.Color(51, 51, 51));
+        jTextFieldAddName.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldAddName.setBorder(null);
+        jTextFieldAddName.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanelUsersAdd.add(jTextFieldAddName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 160, 25));
+
+        jTextFieldAddLastname.setBackground(new java.awt.Color(51, 51, 51));
+        jTextFieldAddLastname.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldAddLastname.setBorder(null);
+        jTextFieldAddLastname.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanelUsersAdd.add(jTextFieldAddLastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 160, 25));
+
+        jComboBoxAddDepartment.setBackground(new java.awt.Color(51, 51, 51));
+        jComboBoxAddDepartment.setForeground(new java.awt.Color(204, 204, 204));
+        jComboBoxAddDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        jComboBoxAddDepartment.setBorder(null);
+        jComboBoxAddDepartment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelUsersAdd.add(jComboBoxAddDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 160, 25));
+
+        jComboBoxAddRole.setBackground(new java.awt.Color(51, 51, 51));
+        jComboBoxAddRole.setForeground(new java.awt.Color(204, 204, 204));
+        jComboBoxAddRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        jComboBoxAddRole.setBorder(null);
+        jComboBoxAddRole.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelUsersAdd.add(jComboBoxAddRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 160, 25));
+
+        jComboBoxAddState.setBackground(new java.awt.Color(51, 51, 51));
+        jComboBoxAddState.setForeground(new java.awt.Color(204, 204, 204));
+        jComboBoxAddState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        jComboBoxAddState.setBorder(null);
+        jComboBoxAddState.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelUsersAdd.add(jComboBoxAddState, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 170, 160, 25));
+
+        jLabelCleanAddPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-broom-24.png"))); // NOI18N
+        jLabelCleanAddPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelCleanAddPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCleanAddPanelMouseClicked(evt);
+            }
+        });
+        jPanelUsersAdd.add(jLabelCleanAddPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-add-user-male-24.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelUsersAdd.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, -1, -1));
 
         javax.swing.GroupLayout jPanelUserManagementLayout = new javax.swing.GroupLayout(jPanelUserManagement);
         jPanelUserManagement.setLayout(jPanelUserManagementLayout);
@@ -756,10 +898,10 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jPanelSettings.setVisible(true);
     }//GEN-LAST:event_jLabelSettingsMenuMouseClicked
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void jLabelNewUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelNewUserMouseClicked
         jPanelUsers.setVisible(false);
         jPanelUsersAdd.setVisible(true);
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_jLabelNewUserMouseClicked
 
     private void jLabelDepManagementMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDepManagementMenuMouseClicked
         jLabelHomeMenu.setBackground(new java.awt.Color(55, 55, 55));
@@ -786,6 +928,21 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelSettingsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/07 Configuracio NoSelected.png")));
         jPanelSettings.setVisible(false);
     }//GEN-LAST:event_jLabelDepManagementMenuMouseClicked
+
+    private void jLabelBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMouseClicked
+        jPanelUsers.setVisible(true);
+        jPanelUsersAdd.setVisible(false);
+    }//GEN-LAST:event_jLabelBackMouseClicked
+
+    private void jLabelCleanAddPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCleanAddPanelMouseClicked
+        jTextFieldAddUser.setText(null);
+        jPasswordFieldAddPwd.setText(null);
+        jTextFieldAddName.setText(null);
+        jTextFieldAddLastname.setText(null);
+        jComboBoxAddDepartment.setSelectedIndex(0);
+        jComboBoxAddRole.setSelectedIndex(0);
+        jComboBoxAddState.setSelectedIndex(0);
+    }//GEN-LAST:event_jLabelCleanAddPanelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -830,47 +987,64 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBoxAddDepartment;
+    private javax.swing.JComboBox<String> jComboBoxAddRole;
+    private javax.swing.JComboBox<String> jComboBoxAddState;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelAddDepartment;
+    private javax.swing.JLabel jLabelAddLastname;
+    private javax.swing.JLabel jLabelAddName;
+    private javax.swing.JLabel jLabelAddPwd;
+    private javax.swing.JLabel jLabelAddRole;
+    private javax.swing.JLabel jLabelAddUser;
+    private javax.swing.JLabel jLabelBack;
+    private javax.swing.JLabel jLabelCleanAddPanel;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelDark;
+    private javax.swing.JLabel jLabelDelUsers;
     private javax.swing.JLabel jLabelDepManagement;
-    private javax.swing.JLabel jLabelDepManagementMenu;
-    private javax.swing.JLabel jLabelDisconnect;
+    public javax.swing.JLabel jLabelDepManagementMenu;
+    public javax.swing.JLabel jLabelDisconnect;
     private javax.swing.JLabel jLabelHome;
-    private javax.swing.JLabel jLabelHomeMenu;
+    public javax.swing.JLabel jLabelHomeMenu;
     private javax.swing.JLabel jLabelLight;
     private javax.swing.JLabel jLabelMessage;
-    private javax.swing.JLabel jLabelMessageMenu;
+    public javax.swing.JLabel jLabelMessageMenu;
     private javax.swing.JLabel jLabelMinimize;
+    private javax.swing.JLabel jLabelModifyUsers;
+    private javax.swing.JLabel jLabelNewUser;
+    private javax.swing.JLabel jLabelSearchUsers;
     private javax.swing.JLabel jLabelSettings;
-    private javax.swing.JLabel jLabelSettingsMenu;
+    public javax.swing.JLabel jLabelSettingsMenu;
     private javax.swing.JLabel jLabelStadistics;
-    private javax.swing.JLabel jLabelStadisticsMenu;
+    public javax.swing.JLabel jLabelStadisticsMenu;
+    private javax.swing.JLabel jLabelState;
     private javax.swing.JLabel jLabelTheme;
     private javax.swing.JLabel jLabelTickets;
-    private javax.swing.JLabel jLabelTicketsMenu;
+    public javax.swing.JLabel jLabelTicketsMenu;
     private javax.swing.JLabel jLabelTittle;
     public javax.swing.JLabel jLabelUserConnected;
     private javax.swing.JLabel jLabelUserIcon;
-    private javax.swing.JLabel jLabelUserManagementMenu;
+    public javax.swing.JLabel jLabelUserManagementMenu;
     private javax.swing.JLabel jLabelUsers;
     private javax.swing.JPanel jPaneMenuRight;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanelDepManagement;
-    private javax.swing.JPanel jPanelHome;
+    public javax.swing.JPanel jPanelDepManagement;
+    public javax.swing.JPanel jPanelHome;
+    private javax.swing.JPanel jPanelLogo;
     private javax.swing.JPanel jPanelMenuLeft;
-    private javax.swing.JPanel jPanelMessage;
-    private javax.swing.JPanel jPanelSettings;
-    private javax.swing.JPanel jPanelStadistics;
-    private javax.swing.JPanel jPanelTickets;
+    public javax.swing.JPanel jPanelMessage;
+    public javax.swing.JPanel jPanelSettings;
+    public javax.swing.JPanel jPanelStadistics;
+    public javax.swing.JPanel jPanelTickets;
     private javax.swing.JPanel jPanelTop;
-    private javax.swing.JPanel jPanelUserManagement;
+    public javax.swing.JPanel jPanelUserManagement;
     private javax.swing.JPanel jPanelUsers;
     private javax.swing.JPanel jPanelUsersAdd;
+    private javax.swing.JPasswordField jPasswordFieldAddPwd;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextFieldAddLastname;
+    private javax.swing.JTextField jTextFieldAddName;
+    private javax.swing.JTextField jTextFieldAddUser;
     // End of variables declaration//GEN-END:variables
 
     private void logOut() {
