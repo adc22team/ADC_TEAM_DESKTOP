@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Plantillas;
+package Vistas;
 
-//import Vistas.Login1;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -12,12 +11,11 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author garci
  */
-public class DesktopPlantillaFosc extends javax.swing.JFrame {
+public class DesktopAdmin extends javax.swing.JFrame {
 
     static int id;
     static String usuari;
@@ -28,7 +26,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }
 
     public static void setRol(int rol) {
-        DesktopPlantillaFosc.rol = rol;
+        DesktopAdmin.rol = rol;
     }
 
     public static String getUsuari() {
@@ -36,7 +34,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }
 
     public static void setUsuari(String usuari) {
-        DesktopPlantillaFosc.usuari = usuari;
+        DesktopAdmin.usuari = usuari;
     }
     static String pwd;
 
@@ -45,7 +43,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }
 
     public static void setPwd(String pwd) {
-        DesktopPlantillaFosc.pwd = pwd;
+        DesktopAdmin.pwd = pwd;
     }
 
     public static int getId() {
@@ -53,13 +51,13 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }
 
     public static void setId(int id) {
-        DesktopPlantillaFosc.id = id;
+        DesktopAdmin.id = id;
     }
 
     /**
      * Creates new form DesktopPrincipal
      */
-    public DesktopPlantillaFosc() {
+    public DesktopAdmin() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -133,6 +131,8 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelDark = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelTop.setBackground(new java.awt.Color(55, 55, 55));
@@ -735,7 +735,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinimizeMouseClicked
 
     private void jLabelDisconnectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDisconnectMouseClicked
-        LoginPlantilla window = new LoginPlantilla();
+        Login window = new Login();
         window.setVisible(true);
         logOut();
         this.dispose();
@@ -916,11 +916,11 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelUserManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelUserManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Gestio Usuaris NoSelected.png")));
         jPanelUserManagement.setVisible(false);
-        
+
         jLabelDepManagementMenu.setBackground(new java.awt.Color(51, 51, 51));
         jLabelDepManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/08 Departaments Selected.png")));
         jPanelDepManagement.setVisible(true);
-        
+
         jLabelMessageMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelMessageMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges NoSelected.png")));
         jPanelMessage.setVisible(false);
@@ -961,14 +961,22 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -981,7 +989,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DesktopPlantillaFosc().setVisible(true);
+                new DesktopAdmin().setVisible(true);
             }
         });
     }
@@ -1064,7 +1072,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
             System.out.println("Valor getId: " + getId());
 
         } catch (IOException ex) {
-            Logger.getLogger(DesktopPlantillaFosc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesktopAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

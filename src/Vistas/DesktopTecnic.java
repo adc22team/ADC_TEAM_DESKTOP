@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Plantillas;
+package Vistas;
 
-//import Vistas.Login1;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -12,12 +11,11 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author garci
  */
-public class DesktopPlantillaFosc extends javax.swing.JFrame {
+public class DesktopTecnic extends javax.swing.JFrame {
 
     static int id;
     static String usuari;
@@ -28,7 +26,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }
 
     public static void setRol(int rol) {
-        DesktopPlantillaFosc.rol = rol;
+        DesktopTecnic.rol = rol;
     }
 
     public static String getUsuari() {
@@ -36,7 +34,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }
 
     public static void setUsuari(String usuari) {
-        DesktopPlantillaFosc.usuari = usuari;
+        DesktopTecnic.usuari = usuari;
     }
     static String pwd;
 
@@ -45,7 +43,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }
 
     public static void setPwd(String pwd) {
-        DesktopPlantillaFosc.pwd = pwd;
+        DesktopTecnic.pwd = pwd;
     }
 
     public static int getId() {
@@ -53,13 +51,13 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }
 
     public static void setId(int id) {
-        DesktopPlantillaFosc.id = id;
+        DesktopTecnic.id = id;
     }
 
     /**
      * Creates new form DesktopPrincipal
      */
-    public DesktopPlantillaFosc() {
+    public DesktopTecnic() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -80,13 +78,11 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelMinimize = new javax.swing.JLabel();
         jLabelClose = new javax.swing.JLabel();
         jPanelMenuLeft = new javax.swing.JPanel();
-        jPanelLogo = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabelHomeMenu = new javax.swing.JLabel();
         jLabelTicketsMenu = new javax.swing.JLabel();
         jLabelStadisticsMenu = new javax.swing.JLabel();
-        jLabelUserManagementMenu = new javax.swing.JLabel();
-        jLabelDepManagementMenu = new javax.swing.JLabel();
         jLabelMessageMenu = new javax.swing.JLabel();
         jLabelDisconnect = new javax.swing.JLabel();
         jLabelSettingsMenu = new javax.swing.JLabel();
@@ -97,33 +93,6 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelTickets = new javax.swing.JLabel();
         jPanelStadistics = new javax.swing.JPanel();
         jLabelStadistics = new javax.swing.JLabel();
-        jPanelUserManagement = new javax.swing.JPanel();
-        jLabelUsers = new javax.swing.JLabel();
-        jPanelUsers = new javax.swing.JPanel();
-        jLabelNewUser = new javax.swing.JLabel();
-        jLabelSearchUsers = new javax.swing.JLabel();
-        jLabelModifyUsers = new javax.swing.JLabel();
-        jLabelDelUsers = new javax.swing.JLabel();
-        jPanelUsersAdd = new javax.swing.JPanel();
-        jLabelBack = new javax.swing.JLabel();
-        jLabelAddUser = new javax.swing.JLabel();
-        jLabelAddPwd = new javax.swing.JLabel();
-        jLabelAddName = new javax.swing.JLabel();
-        jLabelAddLastname = new javax.swing.JLabel();
-        jLabelAddDepartment = new javax.swing.JLabel();
-        jLabelAddRole = new javax.swing.JLabel();
-        jLabelState = new javax.swing.JLabel();
-        jTextFieldAddUser = new javax.swing.JTextField();
-        jPasswordFieldAddPwd = new javax.swing.JPasswordField();
-        jTextFieldAddName = new javax.swing.JTextField();
-        jTextFieldAddLastname = new javax.swing.JTextField();
-        jComboBoxAddDepartment = new javax.swing.JComboBox<>();
-        jComboBoxAddRole = new javax.swing.JComboBox<>();
-        jComboBoxAddState = new javax.swing.JComboBox<>();
-        jLabelCleanAddPanel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanelDepManagement = new javax.swing.JPanel();
-        jLabelDepManagement = new javax.swing.JLabel();
         jPanelMessage = new javax.swing.JPanel();
         jLabelMessage = new javax.swing.JLabel();
         jPanelSettings = new javax.swing.JPanel();
@@ -133,6 +102,8 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelDark = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelTop.setBackground(new java.awt.Color(55, 55, 55));
@@ -200,17 +171,17 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
 
         jPanelMenuLeft.setBackground(new java.awt.Color(55, 55, 55));
 
-        jPanelLogo.setBackground(new java.awt.Color(55, 55, 55));
-        jPanelLogo.setPreferredSize(new java.awt.Dimension(200, 93));
+        jPanel2.setBackground(new java.awt.Color(55, 55, 55));
+        jPanel2.setPreferredSize(new java.awt.Dimension(200, 93));
 
-        javax.swing.GroupLayout jPanelLogoLayout = new javax.swing.GroupLayout(jPanelLogo);
-        jPanelLogo.setLayout(jPanelLogoLayout);
-        jPanelLogoLayout.setHorizontalGroup(
-            jPanelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanelLogoLayout.setVerticalGroup(
-            jPanelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 93, Short.MAX_VALUE)
         );
 
@@ -246,26 +217,6 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelStadisticsMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelStadisticsMenuMouseClicked(evt);
-            }
-        });
-
-        jLabelUserManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelUserManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Gestio Usuaris NoSelected.png"))); // NOI18N
-        jLabelUserManagementMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelUserManagementMenu.setOpaque(true);
-        jLabelUserManagementMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelUserManagementMenuMouseClicked(evt);
-            }
-        });
-
-        jLabelDepManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelDepManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/08 Departaments NoSelected.png"))); // NOI18N
-        jLabelDepManagementMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelDepManagementMenu.setOpaque(true);
-        jLabelDepManagementMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelDepManagementMenuMouseClicked(evt);
             }
         });
 
@@ -309,17 +260,15 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabelTicketsMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelStadisticsMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelUserManagementMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelMessageMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanelLogo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelSettingsMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelDepManagementMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelSettingsMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelMenuLeftLayout.setVerticalGroup(
             jPanelMenuLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMenuLeftLayout.createSequentialGroup()
-                .addComponent(jPanelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -328,15 +277,11 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
                 .addComponent(jLabelTicketsMenu)
                 .addGap(12, 12, 12)
                 .addComponent(jLabelStadisticsMenu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelUserManagementMenu)
-                .addGap(12, 12, 12)
-                .addComponent(jLabelDepManagementMenu)
                 .addGap(12, 12, 12)
                 .addComponent(jLabelMessageMenu)
                 .addGap(12, 12, 12)
                 .addComponent(jLabelSettingsMenu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
                 .addComponent(jLabelDisconnect))
         );
 
@@ -423,222 +368,6 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         );
 
         jPaneMenuRight.add(jPanelStadistics, "card5");
-
-        jPanelUserManagement.setBackground(new java.awt.Color(51, 51, 51));
-        jPanelUserManagement.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabelUsers.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelUsers.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabelUsers.setForeground(new java.awt.Color(204, 204, 204));
-        jLabelUsers.setText("Gestió Usuaris");
-
-        jPanelUsers.setBackground(new java.awt.Color(55, 55, 55));
-        jPanelUsers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabelNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-add-user-male-100.png"))); // NOI18N
-        jLabelNewUser.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelNewUserMouseClicked(evt);
-            }
-        });
-        jPanelUsers.add(jLabelNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
-
-        jLabelSearchUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-find-user-male-100.png"))); // NOI18N
-        jPanelUsers.add(jLabelSearchUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
-
-        jLabelModifyUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-registration-100.png"))); // NOI18N
-        jPanelUsers.add(jLabelModifyUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
-
-        jLabelDelUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-delete-user-male-100.png"))); // NOI18N
-        jPanelUsers.add(jLabelDelUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 55, -1, -1));
-
-        jPanelUsersAdd.setBackground(new java.awt.Color(55, 55, 55));
-        jPanelUsersAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanelUsersAdd.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabelBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-left-24.png"))); // NOI18N
-        jLabelBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelBack.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelBackMouseClicked(evt);
-            }
-        });
-        jPanelUsersAdd.add(jLabelBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jLabelAddUser.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabelAddUser.setForeground(new java.awt.Color(204, 204, 204));
-        jLabelAddUser.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelAddUser.setText("Usuari");
-        jLabelAddUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelAddUser.setFocusable(false);
-        jPanelUsersAdd.add(jLabelAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, -1));
-
-        jLabelAddPwd.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabelAddPwd.setForeground(new java.awt.Color(204, 204, 204));
-        jLabelAddPwd.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelAddPwd.setText("Contrasenya");
-        jLabelAddPwd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelAddPwd.setFocusable(false);
-        jPanelUsersAdd.add(jLabelAddPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 100, -1));
-
-        jLabelAddName.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabelAddName.setForeground(new java.awt.Color(204, 204, 204));
-        jLabelAddName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelAddName.setText("Nom");
-        jLabelAddName.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelAddName.setFocusable(false);
-        jPanelUsersAdd.add(jLabelAddName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 100, -1));
-
-        jLabelAddLastname.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabelAddLastname.setForeground(new java.awt.Color(204, 204, 204));
-        jLabelAddLastname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelAddLastname.setText("Cognom");
-        jLabelAddLastname.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelAddLastname.setFocusable(false);
-        jPanelUsersAdd.add(jLabelAddLastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 100, -1));
-
-        jLabelAddDepartment.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabelAddDepartment.setForeground(new java.awt.Color(204, 204, 204));
-        jLabelAddDepartment.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelAddDepartment.setText("Departament");
-        jLabelAddDepartment.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelAddDepartment.setFocusable(false);
-        jPanelUsersAdd.add(jLabelAddDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 100, -1));
-
-        jLabelAddRole.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabelAddRole.setForeground(new java.awt.Color(204, 204, 204));
-        jLabelAddRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelAddRole.setText("Rol");
-        jLabelAddRole.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelAddRole.setFocusable(false);
-        jPanelUsersAdd.add(jLabelAddRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 100, -1));
-
-        jLabelState.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabelState.setForeground(new java.awt.Color(204, 204, 204));
-        jLabelState.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelState.setText("Estat");
-        jLabelState.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelState.setFocusable(false);
-        jPanelUsersAdd.add(jLabelState, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 100, -1));
-
-        jTextFieldAddUser.setBackground(new java.awt.Color(51, 51, 51));
-        jTextFieldAddUser.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldAddUser.setBorder(null);
-        jTextFieldAddUser.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanelUsersAdd.add(jTextFieldAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 160, 25));
-
-        jPasswordFieldAddPwd.setBackground(new java.awt.Color(51, 51, 51));
-        jPasswordFieldAddPwd.setForeground(new java.awt.Color(204, 204, 204));
-        jPasswordFieldAddPwd.setBorder(null);
-        jPasswordFieldAddPwd.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanelUsersAdd.add(jPasswordFieldAddPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 160, 25));
-
-        jTextFieldAddName.setBackground(new java.awt.Color(51, 51, 51));
-        jTextFieldAddName.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldAddName.setBorder(null);
-        jTextFieldAddName.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanelUsersAdd.add(jTextFieldAddName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 160, 25));
-
-        jTextFieldAddLastname.setBackground(new java.awt.Color(51, 51, 51));
-        jTextFieldAddLastname.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldAddLastname.setBorder(null);
-        jTextFieldAddLastname.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanelUsersAdd.add(jTextFieldAddLastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 160, 25));
-
-        jComboBoxAddDepartment.setBackground(new java.awt.Color(51, 51, 51));
-        jComboBoxAddDepartment.setForeground(new java.awt.Color(204, 204, 204));
-        jComboBoxAddDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
-        jComboBoxAddDepartment.setBorder(null);
-        jComboBoxAddDepartment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelUsersAdd.add(jComboBoxAddDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 160, 25));
-
-        jComboBoxAddRole.setBackground(new java.awt.Color(51, 51, 51));
-        jComboBoxAddRole.setForeground(new java.awt.Color(204, 204, 204));
-        jComboBoxAddRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
-        jComboBoxAddRole.setBorder(null);
-        jComboBoxAddRole.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelUsersAdd.add(jComboBoxAddRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 160, 25));
-
-        jComboBoxAddState.setBackground(new java.awt.Color(51, 51, 51));
-        jComboBoxAddState.setForeground(new java.awt.Color(204, 204, 204));
-        jComboBoxAddState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
-        jComboBoxAddState.setBorder(null);
-        jComboBoxAddState.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelUsersAdd.add(jComboBoxAddState, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 170, 160, 25));
-
-        jLabelCleanAddPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-broom-24.png"))); // NOI18N
-        jLabelCleanAddPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelCleanAddPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelCleanAddPanelMouseClicked(evt);
-            }
-        });
-        jPanelUsersAdd.add(jLabelCleanAddPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-add-user-male-24.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelUsersAdd.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, -1, -1));
-
-        javax.swing.GroupLayout jPanelUserManagementLayout = new javax.swing.GroupLayout(jPanelUserManagement);
-        jPanelUserManagement.setLayout(jPanelUserManagementLayout);
-        jPanelUserManagementLayout.setHorizontalGroup(
-            jPanelUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelUserManagementLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelUserManagementLayout.createSequentialGroup()
-                        .addComponent(jLabelUsers)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanelUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanelUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelUserManagementLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanelUsersAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jPanelUserManagementLayout.setVerticalGroup(
-            jPanelUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelUserManagementLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelUsers)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanelUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanelUserManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUserManagementLayout.createSequentialGroup()
-                    .addContainerGap(37, Short.MAX_VALUE)
-                    .addComponent(jPanelUsersAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
-        );
-
-        jPaneMenuRight.add(jPanelUserManagement, "card6");
-
-        jPanelDepManagement.setBackground(new java.awt.Color(51, 51, 51));
-
-        jLabelDepManagement.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelDepManagement.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabelDepManagement.setForeground(new java.awt.Color(204, 204, 204));
-        jLabelDepManagement.setText("Gestió Departaments");
-
-        javax.swing.GroupLayout jPanelDepManagementLayout = new javax.swing.GroupLayout(jPanelDepManagement);
-        jPanelDepManagement.setLayout(jPanelDepManagementLayout);
-        jPanelDepManagementLayout.setHorizontalGroup(
-            jPanelDepManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelDepManagementLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelDepManagement)
-                .addContainerGap(636, Short.MAX_VALUE))
-        );
-        jPanelDepManagementLayout.setVerticalGroup(
-            jPanelDepManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelDepManagementLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelDepManagement)
-                .addContainerGap(529, Short.MAX_VALUE))
-        );
-
-        jPaneMenuRight.add(jPanelDepManagement, "card4");
 
         jPanelMessage.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -735,7 +464,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinimizeMouseClicked
 
     private void jLabelDisconnectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDisconnectMouseClicked
-        LoginPlantilla window = new LoginPlantilla();
+        Login window = new Login();
         window.setVisible(true);
         logOut();
         this.dispose();
@@ -752,12 +481,6 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelStadisticsMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelStadisticsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/04 Estadistiques NoSelected.png")));
         jPanelStadistics.setVisible(false);
-        jLabelUserManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelUserManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Gestio Usuaris NoSelected.png")));
-        jPanelUserManagement.setVisible(false);
-        jLabelDepManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelDepManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/08 Departaments NoSelected.png")));
-        jPanelDepManagement.setVisible(false);
         jLabelMessageMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelMessageMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges NoSelected.png")));
         jPanelMessage.setVisible(false);
@@ -778,12 +501,6 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelStadisticsMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelStadisticsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/04 Estadistiques NoSelected.png")));
         jPanelStadistics.setVisible(false);
-        jLabelUserManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelUserManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Gestio Usuaris NoSelected.png")));
-        jPanelUserManagement.setVisible(false);
-        jLabelDepManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelDepManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/08 Departaments NoSelected.png")));
-        jPanelDepManagement.setVisible(false);
         jLabelMessageMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelMessageMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges NoSelected.png")));
         jPanelMessage.setVisible(false);
@@ -804,12 +521,6 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelStadisticsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/04 Estadistiques Selected.png")));
         jPanelStadistics.setVisible(true);
 
-        jLabelUserManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelUserManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Gestio Usuaris NoSelected.png")));
-        jPanelUserManagement.setVisible(false);
-        jLabelDepManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelDepManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/08 Departaments NoSelected.png")));
-        jPanelDepManagement.setVisible(false);
         jLabelMessageMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelMessageMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges NoSelected.png")));
         jPanelMessage.setVisible(false);
@@ -817,35 +528,6 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelSettingsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/07 Configuracio NoSelected.png")));
         jPanelSettings.setVisible(false);
     }//GEN-LAST:event_jLabelStadisticsMenuMouseClicked
-
-    private void jLabelUserManagementMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelUserManagementMenuMouseClicked
-        jLabelHomeMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelHomeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/01 Inici NoSelected.png")));
-        jPanelHome.setVisible(false);
-        jLabelTicketsMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelTicketsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/02 Tiquets NoSelected.png")));
-        jPanelTickets.setVisible(false);
-        jLabelStadisticsMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelStadisticsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/04 Estadistiques NoSelected.png")));
-        jPanelStadistics.setVisible(false);
-
-        jLabelUserManagementMenu.setBackground(new java.awt.Color(51, 51, 51));
-        jLabelUserManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Gestio Usuaris Selected.png")));
-        jPanelUserManagement.setVisible(true);
-
-        jLabelDepManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelDepManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/08 Departaments NoSelected.png")));
-        jPanelDepManagement.setVisible(false);
-        jLabelMessageMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelMessageMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges NoSelected.png")));
-        jPanelMessage.setVisible(false);
-        jLabelSettingsMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelSettingsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/07 Configuracio NoSelected.png")));
-        jPanelSettings.setVisible(false);
-
-        jPanelUsers.setVisible(true);
-        jPanelUsersAdd.setVisible(false);
-    }//GEN-LAST:event_jLabelUserManagementMenuMouseClicked
 
     private void jLabelMessageMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMessageMenuMouseClicked
         jLabelHomeMenu.setBackground(new java.awt.Color(55, 55, 55));
@@ -857,12 +539,6 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelStadisticsMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelStadisticsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/04 Estadistiques NoSelected.png")));
         jPanelStadistics.setVisible(false);
-        jLabelUserManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelUserManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Gestio Usuaris NoSelected.png")));
-        jPanelUserManagement.setVisible(false);
-        jLabelDepManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelDepManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/08 Departaments NoSelected.png")));
-        jPanelDepManagement.setVisible(false);
 
         jLabelMessageMenu.setBackground(new java.awt.Color(51, 51, 51));
         jLabelMessageMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges Selected.png")));
@@ -883,12 +559,6 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelStadisticsMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelStadisticsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/04 Estadistiques NoSelected.png")));
         jPanelStadistics.setVisible(false);
-        jLabelUserManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelUserManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Gestio Usuaris NoSelected.png")));
-        jPanelUserManagement.setVisible(false);
-        jLabelDepManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelDepManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/08 Departaments NoSelected.png")));
-        jPanelDepManagement.setVisible(false);
         jLabelMessageMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelMessageMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges NoSelected.png")));
         jPanelMessage.setVisible(false);
@@ -897,52 +567,6 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
         jLabelSettingsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/07 Configuracio Selected.png")));
         jPanelSettings.setVisible(true);
     }//GEN-LAST:event_jLabelSettingsMenuMouseClicked
-
-    private void jLabelNewUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelNewUserMouseClicked
-        jPanelUsers.setVisible(false);
-        jPanelUsersAdd.setVisible(true);
-    }//GEN-LAST:event_jLabelNewUserMouseClicked
-
-    private void jLabelDepManagementMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDepManagementMenuMouseClicked
-        jLabelHomeMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelHomeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/01 Inici NoSelected.png")));
-        jPanelHome.setVisible(false);
-        jLabelTicketsMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelTicketsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/02 Tiquets NoSelected.png")));
-        jPanelTickets.setVisible(false);
-        jLabelStadisticsMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelStadisticsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/04 Estadistiques NoSelected.png")));
-        jPanelStadistics.setVisible(false);
-        jLabelUserManagementMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelUserManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/05 Gestio Usuaris NoSelected.png")));
-        jPanelUserManagement.setVisible(false);
-        
-        jLabelDepManagementMenu.setBackground(new java.awt.Color(51, 51, 51));
-        jLabelDepManagementMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/08 Departaments Selected.png")));
-        jPanelDepManagement.setVisible(true);
-        
-        jLabelMessageMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelMessageMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/06 Missatges NoSelected.png")));
-        jPanelMessage.setVisible(false);
-        jLabelSettingsMenu.setBackground(new java.awt.Color(55, 55, 55));
-        jLabelSettingsMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/07 Configuracio NoSelected.png")));
-        jPanelSettings.setVisible(false);
-    }//GEN-LAST:event_jLabelDepManagementMenuMouseClicked
-
-    private void jLabelBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMouseClicked
-        jPanelUsers.setVisible(true);
-        jPanelUsersAdd.setVisible(false);
-    }//GEN-LAST:event_jLabelBackMouseClicked
-
-    private void jLabelCleanAddPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCleanAddPanelMouseClicked
-        jTextFieldAddUser.setText(null);
-        jPasswordFieldAddPwd.setText(null);
-        jTextFieldAddName.setText(null);
-        jTextFieldAddLastname.setText(null);
-        jComboBoxAddDepartment.setSelectedIndex(0);
-        jComboBoxAddRole.setSelectedIndex(0);
-        jComboBoxAddState.setSelectedIndex(0);
-    }//GEN-LAST:event_jLabelCleanAddPanelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -961,90 +585,53 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopTecnic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopTecnic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopTecnic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopTecnic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DesktopPlantillaFosc().setVisible(true);
+                new DesktopTecnic().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBoxAddDepartment;
-    private javax.swing.JComboBox<String> jComboBoxAddRole;
-    private javax.swing.JComboBox<String> jComboBoxAddState;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelAddDepartment;
-    private javax.swing.JLabel jLabelAddLastname;
-    private javax.swing.JLabel jLabelAddName;
-    private javax.swing.JLabel jLabelAddPwd;
-    private javax.swing.JLabel jLabelAddRole;
-    private javax.swing.JLabel jLabelAddUser;
-    private javax.swing.JLabel jLabelBack;
-    private javax.swing.JLabel jLabelCleanAddPanel;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelDark;
-    private javax.swing.JLabel jLabelDelUsers;
-    private javax.swing.JLabel jLabelDepManagement;
-    public javax.swing.JLabel jLabelDepManagementMenu;
-    public javax.swing.JLabel jLabelDisconnect;
+    private javax.swing.JLabel jLabelDisconnect;
     private javax.swing.JLabel jLabelHome;
-    public javax.swing.JLabel jLabelHomeMenu;
+    private javax.swing.JLabel jLabelHomeMenu;
     private javax.swing.JLabel jLabelLight;
     private javax.swing.JLabel jLabelMessage;
-    public javax.swing.JLabel jLabelMessageMenu;
+    private javax.swing.JLabel jLabelMessageMenu;
     private javax.swing.JLabel jLabelMinimize;
-    private javax.swing.JLabel jLabelModifyUsers;
-    private javax.swing.JLabel jLabelNewUser;
-    private javax.swing.JLabel jLabelSearchUsers;
     private javax.swing.JLabel jLabelSettings;
-    public javax.swing.JLabel jLabelSettingsMenu;
+    private javax.swing.JLabel jLabelSettingsMenu;
     private javax.swing.JLabel jLabelStadistics;
-    public javax.swing.JLabel jLabelStadisticsMenu;
-    private javax.swing.JLabel jLabelState;
+    private javax.swing.JLabel jLabelStadisticsMenu;
     private javax.swing.JLabel jLabelTheme;
     private javax.swing.JLabel jLabelTickets;
-    public javax.swing.JLabel jLabelTicketsMenu;
+    private javax.swing.JLabel jLabelTicketsMenu;
     private javax.swing.JLabel jLabelTittle;
     public javax.swing.JLabel jLabelUserConnected;
     private javax.swing.JLabel jLabelUserIcon;
-    public javax.swing.JLabel jLabelUserManagementMenu;
-    private javax.swing.JLabel jLabelUsers;
     private javax.swing.JPanel jPaneMenuRight;
-    public javax.swing.JPanel jPanelDepManagement;
-    public javax.swing.JPanel jPanelHome;
-    private javax.swing.JPanel jPanelLogo;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelHome;
     private javax.swing.JPanel jPanelMenuLeft;
-    public javax.swing.JPanel jPanelMessage;
-    public javax.swing.JPanel jPanelSettings;
-    public javax.swing.JPanel jPanelStadistics;
-    public javax.swing.JPanel jPanelTickets;
+    private javax.swing.JPanel jPanelMessage;
+    private javax.swing.JPanel jPanelSettings;
+    private javax.swing.JPanel jPanelStadistics;
+    private javax.swing.JPanel jPanelTickets;
     private javax.swing.JPanel jPanelTop;
-    public javax.swing.JPanel jPanelUserManagement;
-    private javax.swing.JPanel jPanelUsers;
-    private javax.swing.JPanel jPanelUsersAdd;
-    private javax.swing.JPasswordField jPasswordFieldAddPwd;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextFieldAddLastname;
-    private javax.swing.JTextField jTextFieldAddName;
-    private javax.swing.JTextField jTextFieldAddUser;
     // End of variables declaration//GEN-END:variables
 
     private void logOut() {
@@ -1064,7 +651,7 @@ public class DesktopPlantillaFosc extends javax.swing.JFrame {
             System.out.println("Valor getId: " + getId());
 
         } catch (IOException ex) {
-            Logger.getLogger(DesktopPlantillaFosc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesktopTecnic.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

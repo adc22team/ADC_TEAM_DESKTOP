@@ -4,7 +4,7 @@
  */
 package Plantillas;
 
-import Vistas.Login1;
+//import Vistas.Login1;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author garci
  */
-public class DesktopPlantillaFosc2 extends javax.swing.JFrame {
+public class DesktopPlantillaFoscTecnic extends javax.swing.JFrame {
 
     static int id;
     static String usuari;
@@ -27,7 +27,7 @@ public class DesktopPlantillaFosc2 extends javax.swing.JFrame {
     }
 
     public static void setRol(int rol) {
-        DesktopPlantillaFosc2.rol = rol;
+        DesktopPlantillaFoscTecnic.rol = rol;
     }
 
     public static String getUsuari() {
@@ -35,7 +35,7 @@ public class DesktopPlantillaFosc2 extends javax.swing.JFrame {
     }
 
     public static void setUsuari(String usuari) {
-        DesktopPlantillaFosc2.usuari = usuari;
+        DesktopPlantillaFoscTecnic.usuari = usuari;
     }
     static String pwd;
 
@@ -44,7 +44,7 @@ public class DesktopPlantillaFosc2 extends javax.swing.JFrame {
     }
 
     public static void setPwd(String pwd) {
-        DesktopPlantillaFosc2.pwd = pwd;
+        DesktopPlantillaFoscTecnic.pwd = pwd;
     }
 
     public static int getId() {
@@ -52,13 +52,13 @@ public class DesktopPlantillaFosc2 extends javax.swing.JFrame {
     }
 
     public static void setId(int id) {
-        DesktopPlantillaFosc2.id = id;
+        DesktopPlantillaFoscTecnic.id = id;
     }
 
     /**
      * Creates new form DesktopPrincipal
      */
-    public DesktopPlantillaFosc2() {
+    public DesktopPlantillaFoscTecnic() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -584,14 +584,62 @@ public class DesktopPlantillaFosc2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopPlantillaFoscTecnic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopPlantillaFoscTecnic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopPlantillaFoscTecnic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DesktopPlantillaFosc2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DesktopPlantillaFoscTecnic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -612,7 +660,7 @@ public class DesktopPlantillaFosc2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DesktopPlantillaFosc2().setVisible(true);
+                new DesktopPlantillaFoscTecnic().setVisible(true);
             }
         });
     }
@@ -666,7 +714,7 @@ public class DesktopPlantillaFosc2 extends javax.swing.JFrame {
             System.out.println("Valor getId: " + getId());
 
         } catch (IOException ex) {
-            Logger.getLogger(DesktopPlantillaFosc2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesktopPlantillaFoscTecnic.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

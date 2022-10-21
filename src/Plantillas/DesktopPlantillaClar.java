@@ -4,7 +4,7 @@
  */
 package Plantillas;
 
-import Vistas.Login1;
+//import Vistas.Login1;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -278,7 +278,7 @@ public class DesktopPlantillaClar extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinimizeMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        Login1 window = new Login1();
+        LoginPlantilla window = new LoginPlantilla();
         window.setVisible(true);
         logOut();
         this.dispose();

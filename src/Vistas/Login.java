@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Plantillas;
+package Vistas;
 
+import Plantillas.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -17,12 +18,12 @@ import Plantillas.DesktopPlantillaFosc;
  *
  * @author garci
  */
-public class LoginPlantilla extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    public LoginPlantilla() {
+    public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
         jPanelFosc.setVisible(true);
@@ -70,6 +71,8 @@ public class LoginPlantilla extends javax.swing.JFrame {
         jLabelLoginClar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelLeft.setBackground(new java.awt.Color(73, 181, 172));
@@ -392,7 +395,7 @@ public class LoginPlantilla extends javax.swing.JFrame {
                 if (rol == 1) {
                     //Obre finestra administrador
                     JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUserFosc.getText().toString());
-                    DesktopPlantillaFosc window = new DesktopPlantillaFosc();
+                    DesktopAdmin window = new DesktopAdmin();
                     window.jLabelUserConnected.setText(jTextFieldUserFosc.getText().toString() + " - #" + resposta_svr_id + " - # rol: " + rol);
 
                     //Envio el id de la connexió validada a la finestra
@@ -406,7 +409,7 @@ public class LoginPlantilla extends javax.swing.JFrame {
                 } else if (rol == 2) {
                     //Obre finestra tecnic
                     JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUserFosc.getText().toString());
-                    DesktopPlantillaFoscTecnic window = new DesktopPlantillaFoscTecnic();
+                    DesktopTecnic window = new DesktopTecnic();
                     window.jLabelUserConnected.setText(jTextFieldUserFosc.getText().toString() + " - #" + resposta_svr_id + " - # rol: " + rol);
 
                     //Envio el id de la connexió validada a la finestra
@@ -429,7 +432,7 @@ public class LoginPlantilla extends javax.swing.JFrame {
 
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this, "No es pot establir connexió amb el servidor");
-            Logger.getLogger(LoginPlantilla.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabelLoginFoscMouseClicked
 
@@ -462,7 +465,7 @@ public class LoginPlantilla extends javax.swing.JFrame {
                     //Obre finestra administrador
                     JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUserClar.getText().toString());
                     //Aqui s'haura de posar que obri l'aplicatiu en mode clar
-                    DesktopPlantillaFosc window = new DesktopPlantillaFosc();
+                    DesktopAdmin window = new DesktopAdmin();
                     window.jLabelUserConnected.setText(jTextFieldUserClar.getText().toString() + " - #" + resposta_svr_id + " - # rol: " + rol);
 
                     //Envio el id de la connexió validada a la finestra
@@ -476,7 +479,7 @@ public class LoginPlantilla extends javax.swing.JFrame {
                 } else if (rol == 2) {
                     //Obre finestra tecnic
                     JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUserClar.getText().toString());
-                    DesktopPlantillaFoscTecnic window = new DesktopPlantillaFoscTecnic();
+                    DesktopTecnic window = new DesktopTecnic();
                     window.jLabelUserConnected.setText(jTextFieldUserClar.getText().toString() + " - #" + resposta_svr_id + " - # rol: " + rol);
 
                     //Envio el id de la connexió validada a la finestra
@@ -499,14 +502,13 @@ public class LoginPlantilla extends javax.swing.JFrame {
 
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this, "No es pot establir connexió amb el servidor");
-            Logger.getLogger(LoginPlantilla.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabelLoginClarMouseClicked
 
     private void jLabelClarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelClarMouseClicked
         jPanelClar.setVisible(true);
         jPanelFosc.setVisible(false);
-        //jLabelClar.setBackground(new java.awt.Color(245, 245, 245));
         jTextFieldUserFosc.setText(null);
         jPasswordFieldFosc.setText(null);
     }//GEN-LAST:event_jLabelClarMouseClicked
@@ -514,7 +516,6 @@ public class LoginPlantilla extends javax.swing.JFrame {
     private void jLabelFoscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFoscMouseClicked
         jPanelFosc.setVisible(true);
         jPanelClar.setVisible(false);
-        //jLabelFosc.setBackground(new java.awt.Color(245, 245, 245));
         jTextFieldUserClar.setText(null);
         jPasswordFieldClar.setText(null);
     }//GEN-LAST:event_jLabelFoscMouseClicked
@@ -558,14 +559,22 @@ public class LoginPlantilla extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -578,7 +587,7 @@ public class LoginPlantilla extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginPlantilla().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
