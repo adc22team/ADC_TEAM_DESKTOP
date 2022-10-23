@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author garci
+ * @author Garcia_D
  */
 public class DesktopTecnic extends javax.swing.JFrame {
 
@@ -452,6 +452,12 @@ public class DesktopTecnic extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     * Fa petició de Logout al Servidor
+     * Tanca la finestra del Client d'Escriptori
+     */
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
 
         logOut();
@@ -459,10 +465,21 @@ public class DesktopTecnic extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
+    /**
+     * 
+     * @param evt Minimitza la pantalla a la barra de tasques del sistema
+     */
     private void jLabelMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizeMouseClicked
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jLabelMinimizeMouseClicked
 
+    /**
+     * 
+     * @param evt 
+     * Fa petició de Logout al Servidor
+     * Tanca la finestra del Client d'Escriptori
+     * Fa visible la finestra de Login
+     */
     private void jLabelDisconnectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDisconnectMouseClicked
         Login window = new Login();
         window.setVisible(true);
@@ -470,6 +487,10 @@ public class DesktopTecnic extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabelDisconnectMouseClicked
 
+    /**
+     * 
+     * @param evt Fa visible el menú d'Inici
+     */
     private void jLabelHomeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHomeMenuMouseClicked
         jLabelHomeMenu.setBackground(new java.awt.Color(51, 51, 51));
         jLabelHomeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/01 Inici Selected.png")));
@@ -489,6 +510,10 @@ public class DesktopTecnic extends javax.swing.JFrame {
         jPanelSettings.setVisible(false);
     }//GEN-LAST:event_jLabelHomeMenuMouseClicked
 
+    /**
+     * 
+     * @param evt Fa visible el menú de Tiquets
+     */
     private void jLabelTicketsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTicketsMenuMouseClicked
         jLabelHomeMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelHomeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/01 Inici NoSelected.png")));
@@ -509,6 +534,10 @@ public class DesktopTecnic extends javax.swing.JFrame {
         jPanelSettings.setVisible(false);
     }//GEN-LAST:event_jLabelTicketsMenuMouseClicked
 
+    /**
+     * 
+     * @param evt Fa visible el menú d'Estadístiques
+     */
     private void jLabelStadisticsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStadisticsMenuMouseClicked
         jLabelHomeMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelHomeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/01 Inici NoSelected.png")));
@@ -529,6 +558,10 @@ public class DesktopTecnic extends javax.swing.JFrame {
         jPanelSettings.setVisible(false);
     }//GEN-LAST:event_jLabelStadisticsMenuMouseClicked
 
+    /**
+     * 
+     * @param evt Fa visible el menú de Missatges
+     */
     private void jLabelMessageMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMessageMenuMouseClicked
         jLabelHomeMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelHomeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/01 Inici NoSelected.png")));
@@ -549,6 +582,10 @@ public class DesktopTecnic extends javax.swing.JFrame {
         jPanelSettings.setVisible(false);
     }//GEN-LAST:event_jLabelMessageMenuMouseClicked
 
+    /**
+     * 
+     * @param evt Fa visible el menú de Configuració
+     */
     private void jLabelSettingsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSettingsMenuMouseClicked
         jLabelHomeMenu.setBackground(new java.awt.Color(55, 55, 55));
         jLabelHomeMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/01 Inici NoSelected.png")));
@@ -634,6 +671,12 @@ public class DesktopTecnic extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * @param usuari
+     * @param pwd
+     * @param id 
+     * Envia la petició de logout al servidor
+     */
     private void logOut() {
 
         Socket sc;

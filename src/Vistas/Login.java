@@ -12,11 +12,10 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Plantillas.DesktopPlantillaFosc;
 
 /**
  *
- * @author garci
+ * @author Garcia_D
  */
 public class Login extends javax.swing.JFrame {
 
@@ -30,7 +29,6 @@ public class Login extends javax.swing.JFrame {
         jPanelClar.setVisible(false);
     }
 
-    //MetodesSQL metodes = new MetodesSQL();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -367,10 +365,21 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param evt Tanca el client Login Fosc d'escriptori
+     */
     private void jLabelCloseFoscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseFoscMouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabelCloseFoscMouseClicked
 
+    /**
+     * -- Versió Fosca --
+     * @param evt Botó per Iniciar Sessió al client d'escriptori
+     * Primer fa la connexió amb el servidor creat mitjançant un try/catch
+     * Li fem la crida com requereix el servidor per fer Login i li pasem els valors agafats pel camp de text i contrasenya creant una conexió
+     * Si els paràmetres son incorrectes ens surt un avís i tanca aquesta conexió creada
+     * Si els paràmetres son correctes, segons el rol del usuari obrira el JFrame referent
+     */
     private void jLabelLoginFoscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginFoscMouseClicked
         Socket sc;
         try {
@@ -436,10 +445,21 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabelLoginFoscMouseClicked
 
+    /**
+     * @param evt Tanca el client Login Clar d'escriptori
+     */
     private void jLabelCloseClarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseClarMouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabelCloseClarMouseClicked
 
+    /**
+     * -- Versió Clara --
+     * @param evt Botó per Iniciar Sessió al client d'escriptori
+     * Primer fa la connexió amb el servidor creat mitjançant un try/catch
+     * Li fem la crida com requereix el servidor per fer Login i li pasem els valors agafats pel camp de text i contrasenya creant una conexió
+     * Si els paràmetres son incorrectes ens surt un avís i tanca aquesta conexió creada
+     * Si els paràmetres son correctes, segons el rol del usuari obrira el JFrame referent
+     */
     private void jLabelLoginClarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginClarMouseClicked
         Socket sc;
         try {
@@ -506,6 +526,9 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabelLoginClarMouseClicked
 
+    /**
+     * @param evt Activa el mode Clar de la pantalla de Login
+     */
     private void jLabelClarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelClarMouseClicked
         jPanelClar.setVisible(true);
         jPanelFosc.setVisible(false);
@@ -513,6 +536,9 @@ public class Login extends javax.swing.JFrame {
         jPasswordFieldFosc.setText(null);
     }//GEN-LAST:event_jLabelClarMouseClicked
 
+    /**
+     * @param evt Activa el mode Fosc de la pantalla de Login
+     */
     private void jLabelFoscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFoscMouseClicked
         jPanelFosc.setVisible(true);
         jPanelClar.setVisible(false);
@@ -520,6 +546,12 @@ public class Login extends javax.swing.JFrame {
         jPasswordFieldClar.setText(null);
     }//GEN-LAST:event_jLabelFoscMouseClicked
 
+    /**
+     * @param usuari
+     * @param pwd
+     * @param id 
+     * Envia la petició de logout al servidor
+     */
     private void logout(String usuari, String pwd, int id) {
 
         Socket sc;
@@ -567,21 +599,6 @@ public class Login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

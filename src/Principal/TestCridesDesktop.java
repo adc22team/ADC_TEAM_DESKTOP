@@ -16,9 +16,10 @@ import java.net.Socket;
 public class TestCridesDesktop {
     
     public static void main(String[] args) throws IOException{
-        //loginAdmin();
+        loginAdmin();
         //loginTecnic();
         //loginUsuari();
+        //loginIncorrecte();
     }
     
     public static void loginAdmin(){
@@ -99,6 +100,31 @@ public class TestCridesDesktop {
                 int rol = 3;
                 System.out.println("Rol: " + rol);
                 System.out.println("Aquest rol d'usuari no te permisos per entrar en aquest aplicatiu");
+            }
+            
+        } catch (Exception ex) {
+            System.out.println("No es pot establir connexió amb el servidor");
+        }
+    }
+    
+    public static void loginIncorrecte(){
+        Socket sc;
+        try {
+            sc = new Socket("127.0.0.1", 5000);
+            DataInputStream in = new DataInputStream(sc.getInputStream());
+            DataOutputStream out = new DataOutputStream(sc.getOutputStream());
+            
+            //Llegir la resposta del servidor al establir la connexió
+            String resposta_svr = in.readUTF();
+            //Enviem resposta al servidor amb el usuari i la contrasenya INCORRECTES!!
+            out.writeUTF("LOGIN," + "aito" + "," + "pwdaito" + ",0");
+            System.out.println("LOGIN," + "aito" + "," + "pwdaito" + ",0");
+            
+            int resposta_svr_id = in.readInt();
+            System.out.println("resposta servidor: " + resposta_svr);
+            
+            if (resposta_svr_id == 0) {
+                System.out.println("Error de usuari o contrasenya");
             }
             
         } catch (Exception ex) {
