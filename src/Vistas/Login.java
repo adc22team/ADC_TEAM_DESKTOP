@@ -513,6 +513,7 @@ public class Login extends javax.swing.JFrame {
                 } else {
                     //Misstge que es usuari i no te credencials
                     JOptionPane.showMessageDialog(this, "Aquest usuari no te credencials per aquest aplicatiu. Inicia sessió amb el client mòbil.");
+                    logout(jTextFieldUserClar.getText().toString(), jPasswordFieldClar.getText().toString(), resposta_svr_id);
                 }
 
             } else {
