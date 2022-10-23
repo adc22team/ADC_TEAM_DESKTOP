@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vistas;
+package Plantillas;
 
-import Plantillas.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -12,23 +11,25 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import Plantillas.DesktopPlantillaFosc;
 
 /**
  *
- * @author Garcia_D
+ * @author garci
  */
-public class Login extends javax.swing.JFrame {
+public class LoginPlantilla extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    public Login() {
+    public LoginPlantilla() {
         initComponents();
         this.setLocationRelativeTo(null);
         jPanelFosc.setVisible(true);
         jPanelClar.setVisible(false);
     }
 
+    //MetodesSQL metodes = new MetodesSQL();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,8 +70,6 @@ public class Login extends javax.swing.JFrame {
         jLabelLoginClar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelLeft.setBackground(new java.awt.Color(73, 181, 172));
@@ -365,21 +364,10 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param evt Tanca el client Login Fosc d'escriptori
-     */
     private void jLabelCloseFoscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseFoscMouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabelCloseFoscMouseClicked
 
-    /**
-     * -- Versió Fosca --
-     * @param evt Botó per Iniciar Sessió al client d'escriptori
-     * Primer fa la connexió amb el servidor creat mitjançant un try/catch
-     * Li fem la crida com requereix el servidor per fer Login i li pasem els valors agafats pel camp de text i contrasenya creant una conexió
-     * Si els paràmetres son incorrectes ens surt un avís i tanca aquesta conexió creada
-     * Si els paràmetres son correctes, segons el rol del usuari obrira el JFrame referent
-     */
     private void jLabelLoginFoscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginFoscMouseClicked
         Socket sc;
         try {
@@ -404,7 +392,7 @@ public class Login extends javax.swing.JFrame {
                 if (rol == 1) {
                     //Obre finestra administrador
                     JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUserFosc.getText().toString());
-                    DesktopAdmin window = new DesktopAdmin();
+                    DesktopPlantillaFosc window = new DesktopPlantillaFosc();
                     window.jLabelUserConnected.setText(jTextFieldUserFosc.getText().toString() + " - #" + resposta_svr_id + " - # rol: " + rol);
 
                     //Envio el id de la connexió validada a la finestra
@@ -418,7 +406,7 @@ public class Login extends javax.swing.JFrame {
                 } else if (rol == 2) {
                     //Obre finestra tecnic
                     JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUserFosc.getText().toString());
-                    DesktopTecnic window = new DesktopTecnic();
+                    DesktopPlantillaFoscTecnic window = new DesktopPlantillaFoscTecnic();
                     window.jLabelUserConnected.setText(jTextFieldUserFosc.getText().toString() + " - #" + resposta_svr_id + " - # rol: " + rol);
 
                     //Envio el id de la connexió validada a la finestra
@@ -441,25 +429,14 @@ public class Login extends javax.swing.JFrame {
 
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this, "No es pot establir connexió amb el servidor");
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginPlantilla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabelLoginFoscMouseClicked
 
-    /**
-     * @param evt Tanca el client Login Clar d'escriptori
-     */
     private void jLabelCloseClarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseClarMouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabelCloseClarMouseClicked
 
-    /**
-     * -- Versió Clara --
-     * @param evt Botó per Iniciar Sessió al client d'escriptori
-     * Primer fa la connexió amb el servidor creat mitjançant un try/catch
-     * Li fem la crida com requereix el servidor per fer Login i li pasem els valors agafats pel camp de text i contrasenya creant una conexió
-     * Si els paràmetres son incorrectes ens surt un avís i tanca aquesta conexió creada
-     * Si els paràmetres son correctes, segons el rol del usuari obrira el JFrame referent
-     */
     private void jLabelLoginClarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginClarMouseClicked
         Socket sc;
         try {
@@ -485,7 +462,7 @@ public class Login extends javax.swing.JFrame {
                     //Obre finestra administrador
                     JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUserClar.getText().toString());
                     //Aqui s'haura de posar que obri l'aplicatiu en mode clar
-                    DesktopAdmin window = new DesktopAdmin();
+                    DesktopPlantillaFosc window = new DesktopPlantillaFosc();
                     window.jLabelUserConnected.setText(jTextFieldUserClar.getText().toString() + " - #" + resposta_svr_id + " - # rol: " + rol);
 
                     //Envio el id de la connexió validada a la finestra
@@ -499,7 +476,7 @@ public class Login extends javax.swing.JFrame {
                 } else if (rol == 2) {
                     //Obre finestra tecnic
                     JOptionPane.showMessageDialog(this, "Benvingut/a " + jTextFieldUserClar.getText().toString());
-                    DesktopTecnic window = new DesktopTecnic();
+                    DesktopPlantillaFoscTecnic window = new DesktopPlantillaFoscTecnic();
                     window.jLabelUserConnected.setText(jTextFieldUserClar.getText().toString() + " - #" + resposta_svr_id + " - # rol: " + rol);
 
                     //Envio el id de la connexió validada a la finestra
@@ -522,36 +499,26 @@ public class Login extends javax.swing.JFrame {
 
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this, "No es pot establir connexió amb el servidor");
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginPlantilla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabelLoginClarMouseClicked
 
-    /**
-     * @param evt Activa el mode Clar de la pantalla de Login
-     */
     private void jLabelClarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelClarMouseClicked
         jPanelClar.setVisible(true);
         jPanelFosc.setVisible(false);
+        //jLabelClar.setBackground(new java.awt.Color(245, 245, 245));
         jTextFieldUserFosc.setText(null);
         jPasswordFieldFosc.setText(null);
     }//GEN-LAST:event_jLabelClarMouseClicked
 
-    /**
-     * @param evt Activa el mode Fosc de la pantalla de Login
-     */
     private void jLabelFoscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFoscMouseClicked
         jPanelFosc.setVisible(true);
         jPanelClar.setVisible(false);
+        //jLabelFosc.setBackground(new java.awt.Color(245, 245, 245));
         jTextFieldUserClar.setText(null);
         jPasswordFieldClar.setText(null);
     }//GEN-LAST:event_jLabelFoscMouseClicked
 
-    /**
-     * @param usuari
-     * @param pwd
-     * @param id 
-     * Envia la petició de logout al servidor
-     */
     private void logout(String usuari, String pwd, int id) {
 
         Socket sc;
@@ -591,20 +558,27 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new LoginPlantilla().setVisible(true);
             }
         });
     }
