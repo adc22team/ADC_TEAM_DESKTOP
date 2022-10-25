@@ -432,11 +432,11 @@ public class Login extends javax.swing.JFrame {
                 } else {
                     //Misstge que es usuari i no te credencials
                     JOptionPane.showMessageDialog(this, "Aquest usuari no te credencials per aquest aplicatiu. Inicia sessió amb el client mòbil.");
+                    logout(jTextFieldUserFosc.getText().toString(), jPasswordFieldFosc.getText().toString(), resposta_svr_id);
                 }
 
             } else {
                 JOptionPane.showMessageDialog(this, "Error de usuari o contrasenya");
-                logout(jTextFieldUserFosc.getText().toString(), jPasswordFieldFosc.getText().toString(), resposta_svr_id);
             }
 
         } catch (IOException ex) {
@@ -513,11 +513,11 @@ public class Login extends javax.swing.JFrame {
                 } else {
                     //Misstge que es usuari i no te credencials
                     JOptionPane.showMessageDialog(this, "Aquest usuari no te credencials per aquest aplicatiu. Inicia sessió amb el client mòbil.");
+                    logout(jTextFieldUserClar.getText().toString(), jPasswordFieldClar.getText().toString(), resposta_svr_id);
                 }
 
             } else {
                 JOptionPane.showMessageDialog(this, "Error de usuari o contrasenya");
-                logout(jTextFieldUserClar.getText().toString(), jPasswordFieldClar.getText().toString(), resposta_svr_id);
             }
 
         } catch (IOException ex) {
