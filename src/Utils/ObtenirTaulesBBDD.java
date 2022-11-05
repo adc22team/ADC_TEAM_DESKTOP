@@ -21,7 +21,7 @@ public class ObtenirTaulesBBDD {
     
     public void getLlistaRols(){
         DesktopAdmin da = new DesktopAdmin();
-        Rols rols = new Rols();
+        //Rols rols = new Rols();
         
         Socket sc;
         try {
@@ -53,7 +53,7 @@ public class ObtenirTaulesBBDD {
                 }
             }
             
-            da.jComboBoxAddRole.addItem(new Rols(,""));          
+            //da.jComboBoxAddRole.addItem(new Rols(,""));          
         } catch (Exception e) {
         }
     }    

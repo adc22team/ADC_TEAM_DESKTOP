@@ -640,7 +640,6 @@ public class DesktopAdmin extends javax.swing.JFrame {
 
         jComboBoxAddRole.setBackground(new java.awt.Color(51, 51, 51));
         jComboBoxAddRole.setForeground(new java.awt.Color(204, 204, 204));
-        jComboBoxAddRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         jComboBoxAddRole.setBorder(null);
         jComboBoxAddRole.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanelUsersAdd.add(jComboBoxAddRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 160, 25));
@@ -1189,7 +1188,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRefreshListUsers;
     private javax.swing.JButton jButtonRefreshListUsers1;
     private javax.swing.JComboBox<String> jComboBoxAddDepartment;
-    private javax.swing.JComboBox<String> jComboBoxAddRole;
+    public javax.swing.JComboBox<String> jComboBoxAddRole;
     private javax.swing.JComboBox<String> jComboBoxAddState;
     private javax.swing.JComboBox<String> jComboBoxFiltraUsersRol;
     private javax.swing.JLabel jLabelAddDepartment;
