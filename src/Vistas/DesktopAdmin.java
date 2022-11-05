@@ -4,12 +4,25 @@
  */
 package Vistas;
 
+import Utils.GestioUsuarisUtils;
+import Utils.Usuaris;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import static java.lang.System.out;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -102,6 +115,12 @@ public class DesktopAdmin extends javax.swing.JFrame {
         jLabelSearchUsers = new javax.swing.JLabel();
         jLabelModifyUsers = new javax.swing.JLabel();
         jLabelDelUsers = new javax.swing.JLabel();
+        jComboBoxFiltraUsersRol = new javax.swing.JComboBox<>();
+        jButtonRefreshListUsers1 = new javax.swing.JButton();
+        jButtonRefreshListUsers = new javax.swing.JButton();
+        jButtonDeleteUser = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableUsers = new javax.swing.JTable();
         jPanelUsersAdd = new javax.swing.JPanel();
         jLabelBack = new javax.swing.JLabel();
         jLabelAddUser = new javax.swing.JLabel();
@@ -119,7 +138,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
         jComboBoxAddRole = new javax.swing.JComboBox<>();
         jComboBoxAddState = new javax.swing.JComboBox<>();
         jLabelCleanAddPanel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelUserAdd = new javax.swing.JLabel();
         jPanelDepManagement = new javax.swing.JPanel();
         jLabelDepManagement = new javax.swing.JLabel();
         jPanelMessage = new javax.swing.JPanel();
@@ -425,7 +444,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
         jPaneMenuRight.add(jPanelStadistics, "card5");
 
         jPanelUserManagement.setBackground(new java.awt.Color(51, 51, 51));
-        jPanelUserManagement.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelUserManagement.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabelUsers.setBackground(new java.awt.Color(55, 55, 55));
         jLabelUsers.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
@@ -433,24 +452,91 @@ public class DesktopAdmin extends javax.swing.JFrame {
         jLabelUsers.setText("Gestió Usuaris");
 
         jPanelUsers.setBackground(new java.awt.Color(55, 55, 55));
+        jPanelUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanelUsers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-add-user-male-100.png"))); // NOI18N
+        jLabelNewUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelNewUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelNewUserMouseClicked(evt);
             }
         });
-        jPanelUsers.add(jLabelNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        jPanelUsers.add(jLabelNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabelSearchUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-find-user-male-100.png"))); // NOI18N
-        jPanelUsers.add(jLabelSearchUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+        jLabelSearchUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelSearchUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelSearchUsersMouseClicked(evt);
+            }
+        });
+        jPanelUsers.add(jLabelSearchUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jLabelModifyUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-registration-100.png"))); // NOI18N
-        jPanelUsers.add(jLabelModifyUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
+        jLabelModifyUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelUsers.add(jLabelModifyUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         jLabelDelUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-delete-user-male-100.png"))); // NOI18N
-        jPanelUsers.add(jLabelDelUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 55, -1, -1));
+        jLabelDelUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelDelUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelDelUsersMouseClicked(evt);
+            }
+        });
+        jPanelUsers.add(jLabelDelUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+
+        jComboBoxFiltraUsersRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tots", "Administradors", "Tècnics", "Usuaris" }));
+        jPanelUsers.add(jComboBoxFiltraUsersRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 120, 30));
+
+        jButtonRefreshListUsers1.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonRefreshListUsers1.setForeground(new java.awt.Color(55, 55, 55));
+        jButtonRefreshListUsers1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-filter-24.png"))); // NOI18N
+        jButtonRefreshListUsers1.setBorderPainted(false);
+        jButtonRefreshListUsers1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonRefreshListUsers1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRefreshListUsers1ActionPerformed(evt);
+            }
+        });
+        jPanelUsers.add(jButtonRefreshListUsers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, 30, 30));
+
+        jButtonRefreshListUsers.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonRefreshListUsers.setForeground(new java.awt.Color(55, 55, 55));
+        jButtonRefreshListUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-update-left-rotation-24.png"))); // NOI18N
+        jButtonRefreshListUsers.setBorderPainted(false);
+        jButtonRefreshListUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonRefreshListUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRefreshListUsersActionPerformed(evt);
+            }
+        });
+        jPanelUsers.add(jButtonRefreshListUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 30, 30));
+
+        jButtonDeleteUser.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonDeleteUser.setForeground(new java.awt.Color(55, 55, 55));
+        jButtonDeleteUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-trash-24.png"))); // NOI18N
+        jButtonDeleteUser.setBorderPainted(false);
+        jButtonDeleteUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonDeleteUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteUserActionPerformed(evt);
+            }
+        });
+        jPanelUsers.add(jButtonDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, 30, 30));
+
+        jTableUsers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTableUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jScrollPane1.setViewportView(jTableUsers);
+
+        jPanelUsers.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 770, 390));
 
         jPanelUsersAdd.setBackground(new java.awt.Color(55, 55, 55));
         jPanelUsersAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -575,9 +661,14 @@ public class DesktopAdmin extends javax.swing.JFrame {
         });
         jPanelUsersAdd.add(jLabelCleanAddPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-add-user-male-24.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelUsersAdd.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, -1, -1));
+        jLabelUserAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-add-user-male-24.png"))); // NOI18N
+        jLabelUserAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelUserAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelUserAddMouseClicked(evt);
+            }
+        });
+        jPanelUsersAdd.add(jLabelUserAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, -1, -1));
 
         javax.swing.GroupLayout jPanelUserManagementLayout = new javax.swing.GroupLayout(jPanelUserManagement);
         jPanelUserManagement.setLayout(jPanelUserManagementLayout);
@@ -724,10 +815,9 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * 
-     * @param evt 
-     * Fa petició de Logout al Servidor
-     * Tanca la finestra del Client d'Escriptori
+     *
+     * @param evt Fa petició de Logout al Servidor Tanca la finestra del Client
+     * d'Escriptori
      */
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
 
@@ -737,7 +827,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     /**
-     * 
+     *
      * @param evt Minimitza la pantalla a la barra de tasques del sistema
      */
     private void jLabelMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinimizeMouseClicked
@@ -745,11 +835,9 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinimizeMouseClicked
 
     /**
-     * 
-     * @param evt 
-     * Fa petició de Logout al Servidor
-     * Tanca la finestra del Client d'Escriptori
-     * Fa visible la finestra de Login
+     *
+     * @param evt Fa petició de Logout al Servidor Tanca la finestra del Client
+     * d'Escriptori Fa visible la finestra de Login
      */
     private void jLabelDisconnectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDisconnectMouseClicked
         Login window = new Login();
@@ -759,7 +847,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelDisconnectMouseClicked
 
     /**
-     * 
+     *
      * @param evt Fa visible el menú d'Inici
      */
     private void jLabelHomeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHomeMenuMouseClicked
@@ -788,7 +876,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelHomeMenuMouseClicked
 
     /**
-     * 
+     *
      * @param evt Fa visible el menú de Tiquets
      */
     private void jLabelTicketsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTicketsMenuMouseClicked
@@ -818,7 +906,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelTicketsMenuMouseClicked
 
     /**
-     * 
+     *
      * @param evt Fa visible el menú d'Estadístiques
      */
     private void jLabelStadisticsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStadisticsMenuMouseClicked
@@ -848,7 +936,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelStadisticsMenuMouseClicked
 
     /**
-     * 
+     *
      * @param evt Fa visible el menú de Gestió d'Usuaris
      */
     private void jLabelUserManagementMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelUserManagementMenuMouseClicked
@@ -878,10 +966,12 @@ public class DesktopAdmin extends javax.swing.JFrame {
 
         jPanelUsers.setVisible(true);
         jPanelUsersAdd.setVisible(false);
+        
+        listUsers();
     }//GEN-LAST:event_jLabelUserManagementMenuMouseClicked
 
     /**
-     * 
+     *
      * @param evt Fa visible el menú de Missatges
      */
     private void jLabelMessageMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMessageMenuMouseClicked
@@ -911,7 +1001,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMessageMenuMouseClicked
 
     /**
-     * 
+     *
      * @param evt Fa visible el menú de Configuració
      */
     private void jLabelSettingsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSettingsMenuMouseClicked
@@ -940,8 +1030,8 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelSettingsMenuMouseClicked
 
     /**
-     * 
-     * @param evt Obre la finestra amb el formulari d'alta d'un usuari nou 
+     *
+     * @param evt Obre la finestra amb el formulari d'alta d'un usuari nou
      */
     private void jLabelNewUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelNewUserMouseClicked
         jPanelUsers.setVisible(false);
@@ -949,7 +1039,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelNewUserMouseClicked
 
     /**
-     * 
+     *
      * @param evt Fa visible el menú de Departament
      */
     private void jLabelDepManagementMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDepManagementMenuMouseClicked
@@ -979,8 +1069,9 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelDepManagementMenuMouseClicked
 
     /**
-     * 
-     * @param evt Icona de fletxa per tornar a enrerre de la pantalla d'alta d'usuari a la de gestió d'usuaris 
+     *
+     * @param evt Icona de fletxa per tornar a enrerre de la pantalla d'alta
+     * d'usuari a la de gestió d'usuaris
      */
     private void jLabelBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMouseClicked
         jPanelUsers.setVisible(true);
@@ -988,18 +1079,60 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelBackMouseClicked
 
     /**
-     * 
+     *
      * @param evt Neteja els camps del formulari d'alta d'usuari
      */
     private void jLabelCleanAddPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCleanAddPanelMouseClicked
-        jTextFieldAddUser.setText(null);
-        jPasswordFieldAddPwd.setText(null);
-        jTextFieldAddName.setText(null);
-        jTextFieldAddLastname.setText(null);
-        jComboBoxAddDepartment.setSelectedIndex(0);
-        jComboBoxAddRole.setSelectedIndex(0);
-        jComboBoxAddState.setSelectedIndex(0);
+        cleanFormAdd();
     }//GEN-LAST:event_jLabelCleanAddPanelMouseClicked
+
+    private void jLabelUserAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelUserAddMouseClicked
+        //Creo les variables on guardo les dades del formulari
+
+        String user = jTextFieldAddUser.getText().toString();
+        String password = jPasswordFieldAddPwd.getText().toString();
+        String name = jTextFieldAddName.getText().toString();
+        String lastname = jTextFieldAddLastname.getText().toString();
+        String department = jComboBoxAddDepartment.getSelectedItem().toString();
+        String role = jComboBoxAddRole.getSelectedItem().toString();
+        String state = jComboBoxAddState.getSelectedItem().toString();
+
+        //Creo instancia de la clase GestioUsuarisUtils
+        GestioUsuarisUtils guu = new GestioUsuarisUtils();
+
+        guu.setUser(user);
+        guu.setPassword(password);
+        guu.setName(name);
+        guu.setLastname(lastname);
+        guu.setDepartment(department);
+        guu.setRole(role);
+        guu.setState(state);
+
+        guu.altaUsuari();
+
+        cleanFormAdd();
+
+    }//GEN-LAST:event_jLabelUserAddMouseClicked
+
+    private void jLabelSearchUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSearchUsersMouseClicked
+        listUsers();
+    }//GEN-LAST:event_jLabelSearchUsersMouseClicked
+
+    private void jLabelDelUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDelUsersMouseClicked
+        deleteUsers();
+    }//GEN-LAST:event_jLabelDelUsersMouseClicked
+
+    private void jButtonRefreshListUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshListUsersActionPerformed
+        filtraryRefrescar();
+    }//GEN-LAST:event_jButtonRefreshListUsersActionPerformed
+
+    private void jButtonDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteUserActionPerformed
+        deleteUsers();
+    }//GEN-LAST:event_jButtonDeleteUserActionPerformed
+
+    private void jButtonRefreshListUsers1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshListUsers1ActionPerformed
+        filtraryRefrescar();
+    }//GEN-LAST:event_jButtonRefreshListUsers1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1052,10 +1185,13 @@ public class DesktopAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonDeleteUser;
+    private javax.swing.JButton jButtonRefreshListUsers;
+    private javax.swing.JButton jButtonRefreshListUsers1;
     private javax.swing.JComboBox<String> jComboBoxAddDepartment;
     private javax.swing.JComboBox<String> jComboBoxAddRole;
     private javax.swing.JComboBox<String> jComboBoxAddState;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> jComboBoxFiltraUsersRol;
     private javax.swing.JLabel jLabelAddDepartment;
     private javax.swing.JLabel jLabelAddLastname;
     private javax.swing.JLabel jLabelAddName;
@@ -1088,6 +1224,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTickets;
     public javax.swing.JLabel jLabelTicketsMenu;
     private javax.swing.JLabel jLabelTittle;
+    private javax.swing.JLabel jLabelUserAdd;
     public javax.swing.JLabel jLabelUserConnected;
     private javax.swing.JLabel jLabelUserIcon;
     public javax.swing.JLabel jLabelUserManagementMenu;
@@ -1106,7 +1243,9 @@ public class DesktopAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelUsers;
     private javax.swing.JPanel jPanelUsersAdd;
     private javax.swing.JPasswordField jPasswordFieldAddPwd;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    public javax.swing.JTable jTableUsers;
     private javax.swing.JTextField jTextFieldAddLastname;
     private javax.swing.JTextField jTextFieldAddName;
     private javax.swing.JTextField jTextFieldAddUser;
@@ -1115,8 +1254,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
     /**
      * @param usuari
      * @param pwd
-     * @param id 
-     * Envia la petició de logout al servidor
+     * @param id Envia la petició de logout al servidor
      */
     private void logOut() {
 
@@ -1137,5 +1275,259 @@ public class DesktopAdmin extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(DesktopAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void listUsers() {
+
+        Socket sc;
+        try {
+            sc = new Socket("127.0.0.1", 5000);
+            DataInputStream in = new DataInputStream(sc.getInputStream());
+            DataOutputStream out = new DataOutputStream(sc.getOutputStream());
+
+            //Llegir la resposta del servidor al establir la connexió
+            String resposta_svr = in.readUTF();
+
+            //Enviem resposta al servidor amb el usuari i la contrasenya i el ID obtingut login
+            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
+
+            //Executem la crida per llistar usuaris
+            out.writeUTF("USER_QUERY,SELECT * FROM usuaris ORDER BY usuari");
+
+            // Llegir la resposta del servidor del nombre de registres trobats
+            int registres_trobats = in.readInt();
+
+            String[] nomColumnes = {"ID", "Usuari", "Contrasenya", "Nom", "Cognoms", "Departament", "Rol", "Estat"};
+            String[] camps;
+            Object[][] registresGrid = new Object[registres_trobats][8];
+
+            DefaultTableModel model = new DefaultTableModel();
+            model.setColumnIdentifiers(nomColumnes);
+
+            for (int i = 0; i < registres_trobats; i++) {
+                //llistaUsuaris.add(in.readUTF());
+                String registre = in.readUTF();
+                camps = registre.split(",");
+
+                for (int j = 0; j < 0; j++) {
+                    registresGrid[i][j] = camps[j];
+                }
+
+                model.addRow(camps);
+            }
+
+            jTableUsers.setModel(model);
+
+        } catch (Exception e) {
+        }
+    }
+    
+    private void listUsersAdmin() {
+
+        Socket sc;
+        try {
+            sc = new Socket("127.0.0.1", 5000);
+            DataInputStream in = new DataInputStream(sc.getInputStream());
+            DataOutputStream out = new DataOutputStream(sc.getOutputStream());
+
+            //Llegir la resposta del servidor al establir la connexió
+            String resposta_svr = in.readUTF();
+
+            //Enviem resposta al servidor amb el usuari i la contrasenya i el ID obtingut login
+            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
+
+            //Executem la crida per llistar usuaris
+            out.writeUTF("USER_QUERY,SELECT * FROM usuaris WHERE rol='1' ORDER BY usuari");
+
+            // Llegir la resposta del servidor del nombre de registres trobats
+            int registres_trobats = in.readInt();
+
+            String[] nomColumnes = {"ID", "Usuari", "Contrasenya", "Nom", "Cognoms", "Departament", "Rol", "Estat"};
+            String[] camps;
+            Object[][] registresGrid = new Object[registres_trobats][8];
+
+            DefaultTableModel model = new DefaultTableModel();
+            model.setColumnIdentifiers(nomColumnes);
+
+            for (int i = 0; i < registres_trobats; i++) {
+                //llistaUsuaris.add(in.readUTF());
+                String registre = in.readUTF();
+                camps = registre.split(",");
+
+                for (int j = 0; j < 0; j++) {
+                    registresGrid[i][j] = camps[j];
+                }
+
+                model.addRow(camps);
+            }
+
+            jTableUsers.setModel(model);
+
+        } catch (Exception e) {
+        }
+    }
+    
+    private void listUsersTecnics() {
+
+        Socket sc;
+        try {
+            sc = new Socket("127.0.0.1", 5000);
+            DataInputStream in = new DataInputStream(sc.getInputStream());
+            DataOutputStream out = new DataOutputStream(sc.getOutputStream());
+
+            //Llegir la resposta del servidor al establir la connexió
+            String resposta_svr = in.readUTF();
+
+            //Enviem resposta al servidor amb el usuari i la contrasenya i el ID obtingut login
+            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
+
+            //Executem la crida per llistar usuaris
+            out.writeUTF("USER_QUERY,SELECT * FROM usuaris WHERE rol='2' ORDER BY usuari");
+
+            // Llegir la resposta del servidor del nombre de registres trobats
+            int registres_trobats = in.readInt();
+
+            String[] nomColumnes = {"ID", "Usuari", "Contrasenya", "Nom", "Cognoms", "Departament", "Rol", "Estat"};
+            String[] camps;
+            Object[][] registresGrid = new Object[registres_trobats][8];
+
+            DefaultTableModel model = new DefaultTableModel();
+            model.setColumnIdentifiers(nomColumnes);
+
+            for (int i = 0; i < registres_trobats; i++) {
+                //llistaUsuaris.add(in.readUTF());
+                String registre = in.readUTF();
+                camps = registre.split(",");
+
+                for (int j = 0; j < 0; j++) {
+                    registresGrid[i][j] = camps[j];
+                }
+
+                model.addRow(camps);
+            }
+
+            jTableUsers.setModel(model);
+
+        } catch (Exception e) {
+        }
+    }
+    
+    private void listUsersUsuaris() {
+
+        Socket sc;
+        try {
+            sc = new Socket("127.0.0.1", 5000);
+            DataInputStream in = new DataInputStream(sc.getInputStream());
+            DataOutputStream out = new DataOutputStream(sc.getOutputStream());
+
+            //Llegir la resposta del servidor al establir la connexió
+            String resposta_svr = in.readUTF();
+
+            //Enviem resposta al servidor amb el usuari i la contrasenya i el ID obtingut login
+            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
+
+            //Executem la crida per llistar usuaris
+            out.writeUTF("USER_QUERY,SELECT * FROM usuaris WHERE rol='3' ORDER BY usuari");
+
+            // Llegir la resposta del servidor del nombre de registres trobats
+            int registres_trobats = in.readInt();
+
+            String[] nomColumnes = {"ID", "Usuari", "Contrasenya", "Nom", "Cognoms", "Departament", "Rol", "Estat"};
+            String[] camps;
+            Object[][] registresGrid = new Object[registres_trobats][8];
+
+            DefaultTableModel model = new DefaultTableModel();
+            model.setColumnIdentifiers(nomColumnes);
+
+            for (int i = 0; i < registres_trobats; i++) {
+                //llistaUsuaris.add(in.readUTF());
+                String registre = in.readUTF();
+                camps = registre.split(",");
+
+                for (int j = 0; j < 0; j++) {
+                    registresGrid[i][j] = camps[j];
+                }
+
+                model.addRow(camps);
+            }
+
+            jTableUsers.setModel(model);
+
+        } catch (Exception e) {
+        }
+    }
+    
+    private void filtraryRefrescar(){
+        int rolUsuari = jComboBoxFiltraUsersRol.getSelectedIndex();
+        
+        switch(rolUsuari){
+            //Administradors
+            case 1:
+                if (rolUsuari == 1){
+                    listUsersAdmin();
+                }
+                jComboBoxFiltraUsersRol.setSelectedIndex(1);
+                break;
+            //Administradors
+            case 2:
+                if (rolUsuari == 2){
+                    listUsersTecnics();
+                }
+                jComboBoxFiltraUsersRol.setSelectedIndex(2);
+                break;
+            //Administradors
+            case 3:
+                if (rolUsuari == 3){
+                    listUsersUsuaris();
+                }
+                jComboBoxFiltraUsersRol.setSelectedIndex(3);
+                break;
+            default:
+                listUsers();
+                jComboBoxFiltraUsersRol.setSelectedIndex(0);
+        }
+    }
+
+    private void deleteUsers() {
+
+        int fila = jTableUsers.getSelectedRow();
+        String valor = jTableUsers.getValueAt(fila, 0).toString();
+
+        Socket sc;
+        try {
+            sc = new Socket("127.0.0.1", 5000);
+            DataInputStream in = new DataInputStream(sc.getInputStream());
+            DataOutputStream out = new DataOutputStream(sc.getOutputStream());
+
+            //Llegir la resposta del servidor al establir la connexió
+            String resposta_svr = in.readUTF();
+
+            //Enviem resposta al servidor amb el usuari i la contrasenya i el ID obtingut login
+            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
+
+            //Executem la crida per llistar usuaris
+            out.writeUTF("USER_DELETE," + valor);
+
+            // Llegir la resposta del servidor del nombre de registres trobats
+            int resposta_eliminar = in.readInt();
+            
+            if (resposta_eliminar == 1) {
+                filtraryRefrescar();
+            }
+
+        } catch (Exception e) {
+        }
+
+    }
+
+    //Object[] ob = new Object[7];
+    private void cleanFormAdd() {
+        jTextFieldAddUser.setText(null);
+        jPasswordFieldAddPwd.setText(null);
+        jTextFieldAddName.setText(null);
+        jTextFieldAddLastname.setText(null);
+        jComboBoxAddDepartment.setSelectedIndex(0);
+        jComboBoxAddRole.setSelectedIndex(0);
+        jComboBoxAddState.setSelectedIndex(0);
     }
 }
