@@ -13,6 +13,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import static java.lang.System.out;
+import java.math.BigInteger;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -640,6 +641,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
 
         jComboBoxAddRole.setBackground(new java.awt.Color(51, 51, 51));
         jComboBoxAddRole.setForeground(new java.awt.Color(204, 204, 204));
+        jComboBoxAddRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         jComboBoxAddRole.setBorder(null);
         jComboBoxAddRole.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanelUsersAdd.add(jComboBoxAddRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 160, 25));
@@ -965,7 +967,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
 
         jPanelUsers.setVisible(true);
         jPanelUsersAdd.setVisible(false);
-        
+
         listUsers();
     }//GEN-LAST:event_jLabelUserManagementMenuMouseClicked
 
@@ -1263,13 +1265,22 @@ public class DesktopAdmin extends javax.swing.JFrame {
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
 
-            // Llegir la resposta del servidor al establir la connexió
-            String resposta_svr = in.readUTF();
-            //Enviem resposta al servidor amb el usuari i la contrasenya
-            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
-            //Executo la consulta de la crida per sortir
-            out.writeUTF("USER_EXIT");
-            System.out.println("Valor getId: " + getId());
+            //Cálcul clau pública client
+            String[] claus_ps = Utils.SystemUtils.clauPublicaClient().split(",");
+
+            //Enviem la clau pública del client al servidor
+            out.writeUTF(String.valueOf(claus_ps[0]));
+            System.out.println("Valor public_key part client enviada al servidor: " + claus_ps[0]);
+
+            //llegim la clau pública del servidor
+            BigInteger shared_secret = Utils.SystemUtils.calculClauCompartida(in.readUTF(), claus_ps[1]);
+            System.out.println("Valor share_secret generada : " + shared_secret);
+
+            System.out.println("Server public key           : " + claus_ps[0]);
+            System.out.println("Shared secret               : " + shared_secret);
+
+            out.writeUTF(Utils.SystemUtils.encryptedText(getId() + ",USER_EXIT", shared_secret.toByteArray()));
+            System.out.println("Valor getId: " + id);
 
         } catch (IOException ex) {
             Logger.getLogger(DesktopAdmin.class.getName()).log(Level.SEVERE, null, ex);
@@ -1284,17 +1295,25 @@ public class DesktopAdmin extends javax.swing.JFrame {
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
 
-            //Llegir la resposta del servidor al establir la connexió
-            String resposta_svr = in.readUTF();
+            //Cálcul clau pública client
+            String[] claus_ps = Utils.SystemUtils.clauPublicaClient().split(",");
 
-            //Enviem resposta al servidor amb el usuari i la contrasenya i el ID obtingut login
-            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
+            //Enviem la clau pública del client al servidor
+            out.writeUTF(String.valueOf(claus_ps[0]));
+            System.out.println("Valor public_key part client enviada al servidor: " + claus_ps[0]);
+
+            //llegim la clau pública del servidor
+            BigInteger shared_secret = Utils.SystemUtils.calculClauCompartida(in.readUTF(), claus_ps[1]);
+            System.out.println("Valor share_secret generada : " + shared_secret);
+
+            System.out.println("Server public key           : " + claus_ps[0]);
+            System.out.println("Shared secret               : " + shared_secret);
 
             //Executem la crida per llistar usuaris
-            out.writeUTF("USER_QUERY,SELECT * FROM usuaris ORDER BY usuari");
+            out.writeUTF(Utils.SystemUtils.encryptedText(getId() + ",USER_QUERY,0", shared_secret.toByteArray()));
 
             // Llegir la resposta del servidor del nombre de registres trobats
-            int registres_trobats = in.readInt();
+            int registres_trobats = Integer.parseInt(Utils.SystemUtils.decryptedText(in.readUTF(), shared_secret.toByteArray()));
 
             String[] nomColumnes = {"ID", "Usuari", "Contrasenya", "Nom", "Cognoms", "Departament", "Rol", "Estat"};
             String[] camps;
@@ -1304,8 +1323,8 @@ public class DesktopAdmin extends javax.swing.JFrame {
             model.setColumnIdentifiers(nomColumnes);
 
             for (int i = 0; i < registres_trobats; i++) {
-                //llistaUsuaris.add(in.readUTF());
-                String registre = in.readUTF();
+
+                String registre = Utils.SystemUtils.decryptedText(in.readUTF(), shared_secret.toByteArray());
                 camps = registre.split(",");
 
                 for (int j = 0; j < 0; j++) {
@@ -1320,7 +1339,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
+
     private void listUsersAdmin() {
 
         Socket sc;
@@ -1329,17 +1348,25 @@ public class DesktopAdmin extends javax.swing.JFrame {
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
 
-            //Llegir la resposta del servidor al establir la connexió
-            String resposta_svr = in.readUTF();
+            //Cálcul clau pública client
+            String[] claus_ps = Utils.SystemUtils.clauPublicaClient().split(",");
 
-            //Enviem resposta al servidor amb el usuari i la contrasenya i el ID obtingut login
-            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
+            //Enviem la clau pública del client al servidor
+            out.writeUTF(String.valueOf(claus_ps[0]));
+            System.out.println("Valor public_key part client enviada al servidor: " + claus_ps[0]);
+
+            //llegim la clau pública del servidor
+            BigInteger shared_secret = Utils.SystemUtils.calculClauCompartida(in.readUTF(), claus_ps[1]);
+            System.out.println("Valor share_secret generada : " + shared_secret);
+
+            System.out.println("Server public key           : " + claus_ps[0]);
+            System.out.println("Shared secret               : " + shared_secret);
 
             //Executem la crida per llistar usuaris
-            out.writeUTF("USER_QUERY,SELECT * FROM usuaris WHERE rol='1' ORDER BY usuari");
+            out.writeUTF(Utils.SystemUtils.encryptedText(getId() + ",USER_QUERY,3,rol = 1,usuari", shared_secret.toByteArray()));
 
             // Llegir la resposta del servidor del nombre de registres trobats
-            int registres_trobats = in.readInt();
+            int registres_trobats = Integer.parseInt(Utils.SystemUtils.decryptedText(in.readUTF(), shared_secret.toByteArray()));
 
             String[] nomColumnes = {"ID", "Usuari", "Contrasenya", "Nom", "Cognoms", "Departament", "Rol", "Estat"};
             String[] camps;
@@ -1349,8 +1376,8 @@ public class DesktopAdmin extends javax.swing.JFrame {
             model.setColumnIdentifiers(nomColumnes);
 
             for (int i = 0; i < registres_trobats; i++) {
-                //llistaUsuaris.add(in.readUTF());
-                String registre = in.readUTF();
+
+                String registre = Utils.SystemUtils.decryptedText(in.readUTF(), shared_secret.toByteArray());
                 camps = registre.split(",");
 
                 for (int j = 0; j < 0; j++) {
@@ -1365,7 +1392,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
+
     private void listUsersTecnics() {
 
         Socket sc;
@@ -1374,17 +1401,25 @@ public class DesktopAdmin extends javax.swing.JFrame {
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
 
-            //Llegir la resposta del servidor al establir la connexió
-            String resposta_svr = in.readUTF();
+            //Cálcul clau pública client
+            String[] claus_ps = Utils.SystemUtils.clauPublicaClient().split(",");
 
-            //Enviem resposta al servidor amb el usuari i la contrasenya i el ID obtingut login
-            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
+            //Enviem la clau pública del client al servidor
+            out.writeUTF(String.valueOf(claus_ps[0]));
+            System.out.println("Valor public_key part client enviada al servidor: " + claus_ps[0]);
+
+            //llegim la clau pública del servidor
+            BigInteger shared_secret = Utils.SystemUtils.calculClauCompartida(in.readUTF(), claus_ps[1]);
+            System.out.println("Valor share_secret generada : " + shared_secret);
+
+            System.out.println("Server public key           : " + claus_ps[0]);
+            System.out.println("Shared secret               : " + shared_secret);
 
             //Executem la crida per llistar usuaris
-            out.writeUTF("USER_QUERY,SELECT * FROM usuaris WHERE rol='2' ORDER BY usuari");
+            out.writeUTF(Utils.SystemUtils.encryptedText(getId() + ",USER_QUERY,3,rol = 2,usuari", shared_secret.toByteArray()));
 
             // Llegir la resposta del servidor del nombre de registres trobats
-            int registres_trobats = in.readInt();
+            int registres_trobats = Integer.parseInt(Utils.SystemUtils.decryptedText(in.readUTF(), shared_secret.toByteArray()));
 
             String[] nomColumnes = {"ID", "Usuari", "Contrasenya", "Nom", "Cognoms", "Departament", "Rol", "Estat"};
             String[] camps;
@@ -1394,8 +1429,8 @@ public class DesktopAdmin extends javax.swing.JFrame {
             model.setColumnIdentifiers(nomColumnes);
 
             for (int i = 0; i < registres_trobats; i++) {
-                //llistaUsuaris.add(in.readUTF());
-                String registre = in.readUTF();
+
+                String registre = Utils.SystemUtils.decryptedText(in.readUTF(), shared_secret.toByteArray());
                 camps = registre.split(",");
 
                 for (int j = 0; j < 0; j++) {
@@ -1410,7 +1445,7 @@ public class DesktopAdmin extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
+
     private void listUsersUsuaris() {
 
         Socket sc;
@@ -1419,17 +1454,25 @@ public class DesktopAdmin extends javax.swing.JFrame {
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
 
-            //Llegir la resposta del servidor al establir la connexió
-            String resposta_svr = in.readUTF();
+            //Cálcul clau pública client
+            String[] claus_ps = Utils.SystemUtils.clauPublicaClient().split(",");
 
-            //Enviem resposta al servidor amb el usuari i la contrasenya i el ID obtingut login
-            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
+            //Enviem la clau pública del client al servidor
+            out.writeUTF(String.valueOf(claus_ps[0]));
+            System.out.println("Valor public_key part client enviada al servidor: " + claus_ps[0]);
+
+            //llegim la clau pública del servidor
+            BigInteger shared_secret = Utils.SystemUtils.calculClauCompartida(in.readUTF(), claus_ps[1]);
+            System.out.println("Valor share_secret generada : " + shared_secret);
+
+            System.out.println("Server public key           : " + claus_ps[0]);
+            System.out.println("Shared secret               : " + shared_secret);
 
             //Executem la crida per llistar usuaris
-            out.writeUTF("USER_QUERY,SELECT * FROM usuaris WHERE rol='3' ORDER BY usuari");
+            out.writeUTF(Utils.SystemUtils.encryptedText(getId() + ",USER_QUERY,3,rol = 3,usuari", shared_secret.toByteArray()));
 
             // Llegir la resposta del servidor del nombre de registres trobats
-            int registres_trobats = in.readInt();
+            int registres_trobats = Integer.parseInt(Utils.SystemUtils.decryptedText(in.readUTF(), shared_secret.toByteArray()));
 
             String[] nomColumnes = {"ID", "Usuari", "Contrasenya", "Nom", "Cognoms", "Departament", "Rol", "Estat"};
             String[] camps;
@@ -1439,8 +1482,8 @@ public class DesktopAdmin extends javax.swing.JFrame {
             model.setColumnIdentifiers(nomColumnes);
 
             for (int i = 0; i < registres_trobats; i++) {
-                //llistaUsuaris.add(in.readUTF());
-                String registre = in.readUTF();
+
+                String registre = Utils.SystemUtils.decryptedText(in.readUTF(), shared_secret.toByteArray());
                 camps = registre.split(",");
 
                 for (int j = 0; j < 0; j++) {
@@ -1455,28 +1498,28 @@ public class DesktopAdmin extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
-    private void filtraryRefrescar(){
+
+    private void filtraryRefrescar() {
         int rolUsuari = jComboBoxFiltraUsersRol.getSelectedIndex();
-        
-        switch(rolUsuari){
+
+        switch (rolUsuari) {
             //Administradors
             case 1:
-                if (rolUsuari == 1){
+                if (rolUsuari == 1) {
                     listUsersAdmin();
                 }
                 jComboBoxFiltraUsersRol.setSelectedIndex(1);
                 break;
-            //Administradors
+            //Tècnics
             case 2:
-                if (rolUsuari == 2){
+                if (rolUsuari == 2) {
                     listUsersTecnics();
                 }
                 jComboBoxFiltraUsersRol.setSelectedIndex(2);
                 break;
-            //Administradors
+            //Usuaris
             case 3:
-                if (rolUsuari == 3){
+                if (rolUsuari == 3) {
                     listUsersUsuaris();
                 }
                 jComboBoxFiltraUsersRol.setSelectedIndex(3);
@@ -1492,24 +1535,42 @@ public class DesktopAdmin extends javax.swing.JFrame {
         int fila = jTableUsers.getSelectedRow();
         String valor = jTableUsers.getValueAt(fila, 0).toString();
 
+        System.out.println("Valor de valor : " + valor);
+
         Socket sc;
         try {
             sc = new Socket("127.0.0.1", 5000);
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
 
-            //Llegir la resposta del servidor al establir la connexió
-            String resposta_svr = in.readUTF();
+            //Cálcul clau pública client
+            String[] claus_ps = Utils.SystemUtils.clauPublicaClient().split(",");
 
-            //Enviem resposta al servidor amb el usuari i la contrasenya i el ID obtingut login
-            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
+            //Enviem la clau pública del client al servidor
+            out.writeUTF(String.valueOf(claus_ps[0]));
+            System.out.println("Valor public_key part client enviada al servidor: " + claus_ps[0]);
+
+            //llegim la clau pública del servidor
+            BigInteger shared_secret = Utils.SystemUtils.calculClauCompartida(in.readUTF(), claus_ps[1]);
+            System.out.println("Valor share_secret generada : " + shared_secret);
+
+            System.out.println("Server public key           : " + claus_ps[0]);
+            System.out.println("Shared secret               : " + shared_secret);
+
+            System.out.println("Abans de la crida");
 
             //Executem la crida per llistar usuaris
-            out.writeUTF("USER_DELETE," + valor);
+            //   String crida = getId() + ",USER_DELETE," + valor;
+            //   out.writeUTF(crida);
+            out.writeUTF(Utils.SystemUtils.encryptedText(getId() + ",USER_DELETE," + valor, shared_secret.toByteArray()));
+
+            System.out.println("Valor de la crida despres de la crida");
 
             // Llegir la resposta del servidor del nombre de registres trobats
-            int resposta_eliminar = in.readInt();
-            
+            int resposta_eliminar = Integer.parseInt(Utils.SystemUtils.decryptedText(in.readUTF(), shared_secret.toByteArray()));
+
+            System.out.println("Valor resposta_eliminar : " + resposta_eliminar);
+
             if (resposta_eliminar == 1) {
                 filtraryRefrescar();
             }
@@ -1519,7 +1580,6 @@ public class DesktopAdmin extends javax.swing.JFrame {
 
     }
 
-    //Object[] ob = new Object[7];
     private void cleanFormAdd() {
         jTextFieldAddUser.setText(null);
         jPasswordFieldAddPwd.setText(null);

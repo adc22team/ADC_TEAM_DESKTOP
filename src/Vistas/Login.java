@@ -8,6 +8,7 @@ import Plantillas.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -386,20 +387,35 @@ public class Login extends javax.swing.JFrame {
             sc = new Socket("127.0.0.1", 5000);
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
-
-            //Llegir la resposta del servidor al establir la connexió
-            String resposta_svr = in.readUTF();
+            
+            //Cálcul clau pública client
+            String[] claus_ps = Utils.SystemUtils.clauPublicaClient().split(",");
+            
+            //Enviem la clau pública del client al servidor
+            out.writeUTF(String.valueOf(claus_ps[0]));
+            System.out.println("Valor public_key part client enviada al servidor: " + claus_ps[0]);
+            
+            //llegim la clau pública del servidor
+            BigInteger shared_secret =Utils.SystemUtils.calculClauCompartida(in.readUTF(),claus_ps[1]);
+            System.out.println("Valor share_secret generada : " + shared_secret);
+       
+            System.out.println("Server public key           : " + claus_ps[0]);
+            System.out.println("Shared secret               : " + shared_secret);
+         
 
             //Enviem resposta al servidor amb el usuari i la contrasenya
-            out.writeUTF("LOGIN," + jTextFieldUserFosc.getText().toString() + "," + jPasswordFieldFosc.getText().toString() + ",0");
-            System.out.println("LOGIN," + jTextFieldUserFosc.getText().toString() + "," + jPasswordFieldFosc.getText().toString() + ",0");
-
-            int resposta_svr_id = in.readInt();
-            System.out.println("resposta servidor: " + resposta_svr);
-
+            out.writeUTF(Utils.SystemUtils.encryptedText("0" + ",LOGIN," + jTextFieldUserFosc.getText().toString()
+                    + "," +jPasswordFieldFosc.getText().toString() ,shared_secret.toByteArray()));
+            
+            System.out.println("0,LOGIN," + jTextFieldUserFosc.getText().toString() + "," + jPasswordFieldFosc.getText().toString());
+            
+          //int resposta_svr_id = in.readInt();
+            int resposta_svr_id = Integer.parseInt(Utils.SystemUtils.decryptedText(in.readUTF(),shared_secret.toByteArray()));
+          
             if (resposta_svr_id != 0) {
 
-                int rol = in.readInt();
+                //int rol = in.readInt();
+                int rol = Integer.parseInt(Utils.SystemUtils.decryptedText(in.readUTF(),shared_secret.toByteArray()));
 
                 if (rol == 1) {
                     //Obre finestra administrador
@@ -466,20 +482,33 @@ public class Login extends javax.swing.JFrame {
             sc = new Socket("127.0.0.1", 5000);
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
-
-            //Llegir la resposta del servidor al establir la connexió
-            String resposta_svr = in.readUTF();
-
-            //Enviem resposta al servidor amb el usuari i la contrasenya
-            out.writeUTF("LOGIN," + jTextFieldUserClar.getText().toString() + "," + jPasswordFieldClar.getText().toString() + ",0");
-            System.out.println("LOGIN," + jTextFieldUserClar.getText().toString() + "," + jPasswordFieldClar.getText().toString() + ",0");
-
-            int resposta_svr_id = in.readInt();
-            System.out.println("resposta servidor: " + resposta_svr);
-
+ 
+            //Cálcul clau pública client
+            String[] claus_ps = Utils.SystemUtils.clauPublicaClient().split(",");
+            
+            //Enviem la clau pública del client al servidor
+            out.writeUTF(String.valueOf(claus_ps[0]));
+            System.out.println("Valor public_key part client enviada al servidor: " + claus_ps[0]);
+            
+            //llegim la clau pública del servidor
+            BigInteger shared_secret =Utils.SystemUtils.calculClauCompartida(in.readUTF(),claus_ps[1]);
+            System.out.println("Valor share_secret generada : " + shared_secret);
+       
+            System.out.println("Server public key           : " + claus_ps[0]);
+            System.out.println("Shared secret               : " + shared_secret);
+            
+             //Enviem resposta al servidor amb el usuari i la contrasenya
+            out.writeUTF(Utils.SystemUtils.encryptedText("0" + ",LOGIN," + jTextFieldUserClar.getText().toString()
+                    + "," +jPasswordFieldClar.getText().toString() ,shared_secret.toByteArray()));
+            System.out.println("0,LOGIN," + jTextFieldUserClar.getText().toString() + "," + jPasswordFieldClar.getText().toString());
+            
+          //int resposta_svr_id = in.readInt();
+            int resposta_svr_id = Integer.parseInt(Utils.SystemUtils.decryptedText(in.readUTF(),shared_secret.toByteArray()));
+            
             if (resposta_svr_id != 0) {
 
-                int rol = in.readInt();
+              //int rol = in.readInt();
+                int rol = Integer.parseInt(Utils.SystemUtils.decryptedText(in.readUTF(),shared_secret.toByteArray()));
 
                 if (rol == 1) {
                     //Obre finestra administrador
@@ -560,12 +589,24 @@ public class Login extends javax.swing.JFrame {
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
 
-            // Llegir la resposta del servidor al establir la connexió
-            String resposta_svr = in.readUTF();
-            //Enviem resposta al servidor amb el usuari i la contrasenya
-            out.writeUTF("LOGIN," + usuari + "," + pwd + "," + id);
+             //Cálcul clau pública client
+            String[] claus_ps = Utils.SystemUtils.clauPublicaClient().split(",");
+            
+            //Enviem la clau pública del client al servidor
+            out.writeUTF(String.valueOf(claus_ps[0]));
+            System.out.println("Valor public_key part client enviada al servidor: " + claus_ps[0]);
+            
+            //llegim la clau pública del servidor
+            BigInteger shared_secret =Utils.SystemUtils.calculClauCompartida(in.readUTF(),claus_ps[1]);
+            System.out.println("Valor share_secret generada : " + shared_secret);
+       
+            System.out.println("Server public key           : " + claus_ps[0]);
+            System.out.println("Shared secret               : " + shared_secret);
+            
+            
             //Executo la consulta de la crida per sortir
-            out.writeUTF("USER_EXIT");
+          //out.writeUTF("USER_EXIT");
+            out.writeUTF(Utils.SystemUtils.encryptedText(id + ",USER_EXIT",shared_secret.toByteArray()));
             System.out.println("Valor getId: " + id);
 
         } catch (IOException ex) {

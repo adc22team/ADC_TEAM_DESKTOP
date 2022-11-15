@@ -7,6 +7,7 @@ package Vistas;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -685,16 +686,25 @@ public class DesktopTecnic extends javax.swing.JFrame {
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
 
-            // Llegir la resposta del servidor al establir la connexió
-            String resposta_svr = in.readUTF();
-            //Enviem resposta al servidor amb el usuari i la contrasenya
-            out.writeUTF("LOGIN," + getUsuari() + "," + getPwd() + "," + getId());
-            //Executo la consulta de la crida per sortir
-            out.writeUTF("USER_EXIT");
-            System.out.println("Valor getId: " + getId());
+            //Cálcul clau pública client
+            String[] claus_ps = Utils.SystemUtils.clauPublicaClient().split(",");
+
+            //Enviem la clau pública del client al servidor
+            out.writeUTF(String.valueOf(claus_ps[0]));
+            System.out.println("Valor public_key part client enviada al servidor: " + claus_ps[0]);
+
+            //llegim la clau pública del servidor
+            BigInteger shared_secret = Utils.SystemUtils.calculClauCompartida(in.readUTF(), claus_ps[1]);
+            System.out.println("Valor share_secret generada : " + shared_secret);
+
+            System.out.println("Server public key           : " + claus_ps[0]);
+            System.out.println("Shared secret               : " + shared_secret);
+
+            out.writeUTF(Utils.SystemUtils.encryptedText(id + ",USER_EXIT", shared_secret.toByteArray()));
+            System.out.println("Valor getId: " + id);
 
         } catch (IOException ex) {
-            Logger.getLogger(DesktopTecnic.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesktopAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
